@@ -1,12 +1,21 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Stock
 {
-    internal class Product
+    public class Product
     {
+
+        public Type type { get; set; }
+        public string Name { get; set; }
+        public string Brand { get; set; }
+        public decimal Price { get; set; }
+        public int TotalVolume { get; set; }
+        public int CurrentVolume { get; set; }
+        public DateTime ExperationDate { get; set; }
+        public Species Species { get; set; }
+
+
+
     }
 }
