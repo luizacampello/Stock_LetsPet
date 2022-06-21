@@ -4,11 +4,8 @@ namespace Stock
 {
     public enum Type
     {
-       Shampoo,
-       SpecialShampoo,
-       Conditioner,
-       SpecialConditioner,
-       Perfume,
-       SpecialPerfume,
+        Shampoo,
+        Conditioner,
+        Perfume,
     }
 }
