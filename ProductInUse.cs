@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Stock
 {
-    internal class Product
+    internal class ProductInUse
     {
     }
 }
