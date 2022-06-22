@@ -13,13 +13,13 @@ namespace Stock.Domain.Stock
         public List<Product> StoredConditioner { get; private set; } = new();
         public List<Product> StoredPerfume { get; private set; } = new();
 
-        List<Product> GetFullStock()
+        public List<Product> GetFullStock()
         {
             List<Product> fullStock = StoredShampoo.Concat(StoredConditioner).Concat(StoredPerfume).ToList();
             return fullStock;
         }
 
-        int TypeQuantity(Type productType)
+        public int TypeQuantity(Type productType)
         {
             switch (productType)
             {
