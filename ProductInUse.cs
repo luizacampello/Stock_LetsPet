@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Stock
 {
-    internal class ProductInUse
+    public class ProductInUse
     {
         public List<Product> OpenShampoo = new();
         public List<Product> OpenSpecialShampoo = new();
