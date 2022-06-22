@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Stock
+namespace Stock.Domain.Stock
 {
     public enum Type
     {

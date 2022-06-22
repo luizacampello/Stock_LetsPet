@@ -5,13 +5,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Stock
+namespace Stock.Services
 {
-    internal class ProductRegistrationInterface
+    internal class GeneralServices
     {
         string DefaultTextFormat(string userInput)
         {
-            return CapitalizeLettersAfterSpace(userInput).Trim();            
+            return CapitalizeLettersAfterSpace(userInput).Trim();
         }
 
         string CapitalizeLettersAfterSpace(string text)
@@ -19,6 +19,5 @@ namespace Stock
             TextInfo textInfo = new CultureInfo("en-US", false).TextInfo;
             return textInfo.ToTitleCase(text);
         }
-
     }
 }
