@@ -12,15 +12,15 @@ namespace Stock.Domain.Stock
         static void Main(string[] args)
         {
 
-            var dictDog = new Dictionary<(Type type, Usage usage, BreedSize breedSize), int>();
-            dictDog.Add((Type.Shampoo, Usage.General, BreedSize.Grande), 200);
-            dictDog.Add((Type.Shampoo, Usage.General, BreedSize.Pequeno), 100);
-            dictDog.Add((Type.Shampoo, Usage.Special, BreedSize.Grande), 150);
-            dictDog.Add((Type.Shampoo, Usage.Special, BreedSize.Pequeno), 75);
-            dictDog.Add((Type.Conditioner, Usage.General, BreedSize.Grande), 50);
-            dictDog.Add((Type.Conditioner, Usage.General, BreedSize.Pequeno), 25);
-            dictDog.Add((Type.Conditioner, Usage.Special, BreedSize.Grande), 20);
-            dictDog.Add((Type.Conditioner, Usage.Special, BreedSize.Pequeno), 10);
+            var dictDog = new Dictionary<(string Type, string isForSpecialServices, string size), int>();
+            dictDog.Add(("Shampoo", "comum", "grande"), 200);
+            dictDog.Add(("Shampoo", "comum", "pequeno"), 100);
+            dictDog.Add(("Sham poo", "especial", "grande"), 150);
+            dictDog.Add(("Shampoo", "especial", "pequeno"), 75);
+            dictDog.Add(("Conditioner", "comum", "grande"), 50);
+            dictDog.Add(("Conditioner", "comum", "pequeno"), 25);
+            dictDog.Add(("Conditioner", "especial", "grande"), 20);
+            dictDog.Add(("Conditioner", "especial", "pequeno"), 10);
 
             var dictCat = new Dictionary<(Type type, Usage usage), int>();
             dictCat.Add((Type.Shampoo, Usage.General), 50);
