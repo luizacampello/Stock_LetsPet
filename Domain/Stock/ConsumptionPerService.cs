@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Stock
+namespace Stock.Domain.Stock
 {
     public class ConsumptionPerService
     {
@@ -14,7 +14,7 @@ namespace Stock
             var dictDog = new Dictionary<(string Type, string isForSpecialServices, string size), int>();
             dictDog.Add(("Shampoo", "comum", "grande"), 200);
             dictDog.Add(("Shampoo", "comum", "pequeno"), 100);
-            dictDog.Add(("Shampoo", "especial", "grande"), 150);
+            dictDog.Add(("Sham poo", "especial", "grande"), 150);
             dictDog.Add(("Shampoo", "especial", "pequeno"), 75);
             dictDog.Add(("Conditioner", "comum", "grande"), 50);
             dictDog.Add(("Conditioner", "comum", "pequeno"), 25);

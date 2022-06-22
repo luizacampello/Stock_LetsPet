@@ -1,7 +1,7 @@
 ﻿using System;
 
 
-namespace Stock
+namespace Stock.Domain.Common
 {
     public enum Species
     {

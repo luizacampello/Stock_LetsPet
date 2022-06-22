@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Stock
+namespace Stock.Domain.Stock
 {
     internal class ProductRegistration
     {
@@ -13,7 +13,12 @@ namespace Stock
 
         void newProduct()
         {
-            newProductType
+            newProductType();
+            newProductName();
+            newProductBrand();
+
+
+
         }
 
 
