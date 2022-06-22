@@ -1,23 +1,27 @@
-﻿using System;
+﻿using Stock.Domain.Stock;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Stock
+namespace Stock.Domain.Stock
 {
     public class Reports
     {
-        public List<Product> StoredShampoo = new();
-        public List<Product> StoredConditioner = new();
-        public List<Product> StoredPerfume = new();
+        private Stock stock;
+
+        public Reports(Stock stock)
+        {
+            this.stock = stock;
+        }
 
         void StockContentReport()
         {
-            if (StoredShampoo.Count != 0)
+            if (stock.TypeQuantity(Type.Shampoo) != 0)
             {
                 Console.WriteLine("Lista de shampoos disponíveis:");
-                foreach (Product shampoo in StoredShampoo)
+                foreach (Product shampoo in stock.StoredShampoo)
                 {
                     Console.WriteLine(shampoo.Usage);
                 }
@@ -25,7 +29,7 @@ namespace Stock
             else
                 Console.WriteLine("Não existem shampoos no estoque.");
 
-            if (StoredConditioner.Count != 0)
+            if (stock.StoredConditioner.Count != 0)
             {
                 Console.WriteLine("Lista de condicionadores disponíveis:");
                 foreach (Product conditioner in StoredConditioner)
@@ -50,7 +54,7 @@ namespace Stock
 
         void Search()
         {
-
+            
         }
 
         void PrintProduct()

@@ -13,7 +13,7 @@ namespace Stock.Domain.Stock
         public List<Product> StoredConditioner { get; private set; } = new();
         public List<Product> StoredPerfume { get; private set; } = new();
 
-        static public List<Product> GetFullStock()
+        public List<Product> GetFullStock()
         {
             List<Product> fullStock = StoredShampoo.Concat(StoredConditioner).Concat(StoredPerfume).ToList();
             return fullStock;
