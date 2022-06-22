@@ -8,6 +8,6 @@ namespace Stock
 {
     internal class ProductInUse
     {
-
+        //oi Marcella
     }
 }
