@@ -4,11 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Stock
+namespace Stock.Domain.Stock
 {
-    public enum Usage
+    public class ReportInterface
     {
-        Special,
-        General,
+
     }
 }
