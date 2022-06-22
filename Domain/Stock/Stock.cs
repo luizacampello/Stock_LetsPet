@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Stock.Domain.Stock
 {
-    internal class Stock
+    public class Stock
     {
         public List<Product> StoredShampoo = new();
         public List<Product> StoredConditioner = new();
@@ -93,19 +93,6 @@ namespace Stock.Domain.Stock
             return productIndex;
         }
 
-        List<Product> StorageSectionSelection(Type wantedproductType)
-        {
-            switch (wantedproductType)
-            {
-                case Type.Shampoo:
-                    return StoredShampoo;
-                case Type.Conditioner:
-                    return StoredConditioner;
-                case Type.Perfume:
-                    return StoredShampoo;
-                default:
-                    return new();
-            }
-        }
+
     }
 }
