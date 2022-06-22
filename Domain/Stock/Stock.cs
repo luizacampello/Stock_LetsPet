@@ -4,11 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Stock
+namespace Stock.Domain.Stock
 {
     internal class Stock
     {
-        private List<Product> StoredShampoo = new();
+        public List<Product> StoredShampoo = new();
         public List<Product> StoredConditioner = new();
         public List<Product> StoredPerfume = new();
 
@@ -36,14 +36,44 @@ namespace Stock
 
         void AddToStock(Product newProduct)
         {
-            List<Product> storageSection = StorageSectionSelection(newProduct.type);
-            storageSection.Add(newProduct);
-            storageSection.Sort((x, y) => x.ExpirationDate.CompareTo(y.ExpirationDate));
+            switch (newProduct.type)
+            {
+                case Type.Shampoo:
+                    StoredShampoo.Add(newProduct);
+                    StoredShampoo.Sort((x, y) => x.ExpirationDate.CompareTo(y.ExpirationDate));
+                    return;
+                case Type.Conditioner:
+                    StoredConditioner.Add(newProduct);
+                    StoredConditioner.Sort((x, y) => x.ExpirationDate.CompareTo(y.ExpirationDate));
+                    return;
+                case Type.Perfume:
+                    StoredPerfume.Add(newProduct);
+                    StoredPerfume.Sort((x, y) => x.ExpirationDate.CompareTo(y.ExpirationDate));
+                    return;
+                default:
+                    break;
+            }
         }
 
         Product RemoveFromStock(Type productType, Usage wantedProductUsage, Species wantedProductSpecies)
         {
-            
+            switch (productType)
+            {
+                case Type.Shampoo:
+                    ProductSearchSelection()
+                    StoredShampoo.Sort((x, y) => x.ExpirationDate.CompareTo(y.ExpirationDate));
+                    return;
+                case Type.Conditioner:
+                    StoredConditioner.Add(newProduct);
+                    StoredConditioner.Sort((x, y) => x.ExpirationDate.CompareTo(y.ExpirationDate));
+                    return;
+                case Type.Perfume:
+                    StoredPerfume.Add(newProduct);
+                    StoredPerfume.Sort((x, y) => x.ExpirationDate.CompareTo(y.ExpirationDate));
+                    return;
+                default:
+                    break;
+            }
         }
 
         int ProductSearchSelection(List<Product> typeStock, Usage wantedProductUsage, Species wantedProductSpecies)
