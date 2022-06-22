@@ -7,7 +7,7 @@ namespace Stock.Domain.Stock
     public class Product
     {
 
-        public Type type { get; set; }
+        public Type Type { get; set; }       
         public Usage Usage { get; set; }
         public string Name { get; set; }
         public string Brand { get; set; }
@@ -17,11 +17,7 @@ namespace Stock.Domain.Stock
         public DateTime ExpirationDate { get; set; }
         public Species Species { get; set; }
 
-        public static void Main(string[] args)
-        {
-
-        }
-
+        
     }
 
 
