@@ -13,7 +13,12 @@ namespace Stock.Domain.Stock
 
         void newProduct()
         {
-            newProductType
+            newProductType();
+            newProductName();
+            newProductBrand();
+
+
+
         }
 
     }

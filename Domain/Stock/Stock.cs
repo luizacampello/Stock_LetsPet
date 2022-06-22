@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Stock.Domain.Common;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,9 +9,9 @@ namespace Stock.Domain.Stock
 {
     public class Stock
     {
-        public List<Product> StoredShampoo = new();
-        public List<Product> StoredConditioner = new();
-        public List<Product> StoredPerfume = new();
+        public List<Product> StoredShampoo { get; private set; } = new(); 
+        public List<Product> StoredConditioner { get; private set; } = new();
+        public List<Product> StoredPerfume { get; private set; } = new();
 
         List<Product> GetFullStock()
         {
