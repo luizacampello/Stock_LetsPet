@@ -8,7 +8,7 @@ namespace Stock.Domain.Stock
     public class Product
     {
 
-        public Category Type { get; set; }       
+        public Category Type { get; set; }
         public Usage Usage { get; set; }
         public string Name { get; set; }
         public string Brand { get; set; }
@@ -19,7 +19,30 @@ namespace Stock.Domain.Stock
         public Species Species { get; set; }
 
 
-        
 
+        public Usage SelectUsage()
+        {
+            Console.WriteLine("Qual o tipo de uso do produto: Digite:\n1 para Comum\n2 para Especial");
+            var inputUsage = Console.ReadLine();
+            switch (inputUsage)
+            {
+                case "1":
+                    return Usage.General;
+
+
+                case "2":
+                    return Usage.Special;
+
+
+                default:
+
+                    Console.WriteLine("Entrada invalida, tente novamente");
+                    SelectUsage();
+                    break;
+            }
+            return Usage.General;
+        }
+
+    }
 
 }

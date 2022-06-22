@@ -21,20 +21,20 @@ namespace Stock.Domain.Stock
             newProduct.Brand = newProductBrand();
         }
 
-        public Type SelectType()
+        public Category SelectType()
         {            
             Console.WriteLine("Qual o tipo de produto: Digite:\n1 para Shampoo\n2 para Condicionador\n3 para Perfume");
             var inputType = Console.ReadLine();
             switch (inputType)
             {
                 case "1":
-                    return Type.Shampoo;
+                    return Category.Shampoo;
                    
                 case "2":
-                    return Type.Conditioner;
+                    return Category.Conditioner;
                    
                 case "3":
-                    return Type.Perfume;
+                    return Category.Perfume;
                     
                 default:
 
@@ -42,8 +42,12 @@ namespace Stock.Domain.Stock
                     SelectType();
                     break;
             }
-            return Type.Shampoo;
+            return Category.Shampoo;
         }
 
+        
+
     }
+
 }
+
