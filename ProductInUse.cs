@@ -8,6 +8,11 @@ namespace Stock
 {
     internal class ProductInUse
     {
-        //oi Marcella
+        public List<Product> OpenShampoo = new();
+        public List<Product> OpenSpecialShampoo = new();
+        public List<Product> OpenConditioner = new();
+        public List<Product> OpenSpecialConditioner = new();
+        public List<Product> OpenPerfume = new();
+        public List<Product> OpenSpecialPerfume = new();
     }
 }
