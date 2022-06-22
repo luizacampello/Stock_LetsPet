@@ -8,7 +8,7 @@ namespace Stock.Domain.Stock
     public class Product
     {
 
-        public Type Type { get; set; }       
+        public Category Category { get; set; }       
         public Usage Usage { get; set; }
         public string Name { get; set; }
         public string Brand { get; set; }
@@ -19,7 +19,7 @@ namespace Stock.Domain.Stock
         public Species Species { get; set; }
 
 
-        public Type SelectUsage()
+        public Category SelectUsage()
         {
             Console.WriteLine("Qual o tipo de uso do produto: Digite:\n1 para Comum\n2 para Especial");
             var inputUsage = Console.ReadLine();
@@ -30,7 +30,7 @@ namespace Stock.Domain.Stock
 
 
                 case "2":
-                    return Type.Conditioner;
+                    return Category.Conditioner;
 
                
                 default:
@@ -39,7 +39,7 @@ namespace Stock.Domain.Stock
                     SelectUsage();
                     break;
             }
-            return Type.Shampoo;
+            return Category.Shampoo;
         }
 
     }

@@ -18,7 +18,7 @@ namespace Stock.Domain.Stock
 
         void StockContentReport()
         {
-            if (stock.TypeQuantity(Type.Shampoo) != 0)
+            if (stock.TypeQuantity(Category.Shampoo) != 0)
             {
                 Console.WriteLine("Lista de shampoos disponíveis:");
                 foreach (Product shampoo in stock.StoredShampoo)
