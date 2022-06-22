@@ -37,17 +37,17 @@ namespace Stock.Domain.Stock
 
         void AddToStock(Product newProduct)
         {
-            switch (newProduct.Type)
+            switch (newProduct.Category)
             {
-                case Type.Shampoo:
+                case Category.Shampoo:
                     StoredShampoo.Add(newProduct);
                     StoredShampoo.Sort((x, y) => x.ExpirationDate.CompareTo(y.ExpirationDate));
                     return;
-                case Type.Conditioner:
+                case Category.Conditioner:
                     StoredConditioner.Add(newProduct);
                     StoredConditioner.Sort((x, y) => x.ExpirationDate.CompareTo(y.ExpirationDate));
                     return;
-                case Type.Perfume:
+                case Category.Perfume:
                     StoredPerfume.Add(newProduct);
                     StoredPerfume.Sort((x, y) => x.ExpirationDate.CompareTo(y.ExpirationDate));
                     return;
@@ -58,31 +58,34 @@ namespace Stock.Domain.Stock
 
         Product RemoveFromStock(Category productType, Usage wantedProductUsage, Species wantedProductSpecies)
         {
-            int 
+            int productIndex = -1 ;
+            Product ProductToOpen = new();
+
             switch (productType)
             {
                 case Category.Shampoo:
-                    int productIndex = ProductSearchSelection(StoredShampoo, wantedProductUsage, wantedProductSpecies);
-                    Product ProductToOpen = StoredShampoo[productIndex];
+                    productIndex = ProductSearchSelection(StoredShampoo, wantedProductUsage, wantedProductSpecies);
+                    ProductToOpen = StoredShampoo[productIndex];
                     StoredShampoo.RemoveAt(productIndex);
                     return ProductToOpen;
                 case Category.Conditioner:
-                    int productIndex = ProductSearchSelection(StoredConditioner, wantedProductUsage, wantedProductSpecies);
-                    Product ProductToOpen = StoredShampoo[productIndex];
+                    productIndex = ProductSearchSelection(StoredConditioner, wantedProductUsage, wantedProductSpecies);
+                    ProductToOpen = StoredShampoo[productIndex];
                     StoredShampoo.RemoveAt(productIndex);
                     return ProductToOpen;
                 case Category.Perfume:
-                    int productIndex = ProductSearchSelection(StoredPerfume, wantedProductUsage, wantedProductSpecies);
-                    Product ProductToOpen = StoredShampoo[productIndex];
+                    productIndex = ProductSearchSelection(StoredPerfume, wantedProductUsage, wantedProductSpecies);
+                    ProductToOpen = StoredShampoo[productIndex];
                     StoredShampoo.RemoveAt(productIndex);
                     return ProductToOpen;
 
                 default:
                     break;
             }
+
+            return ProductToOpen;
         }
         
-
         int ProductSearchSelection(List<Product> CategoryStock, Usage wantedProductUsage, Species wantedProductSpecies)
         {
             int productIndex = -1;

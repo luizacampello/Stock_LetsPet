@@ -7,9 +7,9 @@ using System.Threading.Tasks;
 
 namespace Stock.Services
 {
-    internal class GeneralServices
+    public class GeneralServices
     {
-        string DefaultTextFormat(string userInput)
+        public string DefaultTextFormat(string userInput)
         {
             return CapitalizeLettersAfterSpace(userInput).Trim();
         }
@@ -19,5 +19,13 @@ namespace Stock.Services
             TextInfo textInfo = new CultureInfo("en-US", false).TextInfo;
             return textInfo.ToTitleCase(text);
         }
+
+        public string UserInput()
+        {
+            string userInput = Console.ReadLine();
+            return DefaultTextFormat(userInput);
+        }
     }
+
+
 }

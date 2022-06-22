@@ -19,7 +19,28 @@ namespace Stock.Domain.Stock
         public Species Species { get; set; }
 
 
-       
+        public Usage SelectUsage()
+        {
+            Console.WriteLine("Qual o tipo de uso do produto: Digite:\n1 para Comum\n2 para Especial");
+            var inputUsage = Console.ReadLine();
+            switch (inputUsage)
+            {
+                case "1":
+                    return Usage.Special;
+
+
+                case "2":
+                    return Usage.General;
+
+               
+                default:
+
+                    Console.WriteLine("Entrada invalida, tente novamente");
+                    SelectUsage();
+                    throw new InvalidOperationException();
+            }
+            
+        }
 
     }
 
