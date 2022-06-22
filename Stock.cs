@@ -74,7 +74,7 @@ namespace Stock
                 case Type.Perfume:
                     return StoredShampoo;
                 default:
-                    return;
+                    return new();
             }
         }
     }
