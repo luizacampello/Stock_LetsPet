@@ -1,6 +1,7 @@
 ﻿using Stock.Domain.Common;
 using System;
 using System.Collections.Generic;
+using Stock.Domain.Common;
 
 namespace Stock.Domain.Stock
 {

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Stock.Domain.Common;
 
 namespace Stock.Domain.Stock
 {
@@ -21,26 +22,11 @@ namespace Stock.Domain.Stock
             dictDog.Add(("Conditioner", "especial", "grande"), 20);
             dictDog.Add(("Conditioner", "especial", "pequeno"), 10);
 
-            var dictCat = new Dictionary<(string Type, string isForSpecialServices), int>();
-            dictCat.Add(("shampoo", "comum"), 50);
-            dictCat.Add(("shampoo", "especial"), 20);
-            dictCat.Add(("Conditioner", "comum"), 15);
-            dictCat.Add(("Conditioner", "especial"), 10);
+            var dictCat = new Dictionary<(Type type, Usage usage), int>();
+            dictCat.Add((Type.Shampoo, Usage.General), 50);
+            dictCat.Add((Type.Shampoo, Usage.Special), 20);
+            dictCat.Add((Type.Conditioner, Usage.General), 15);
 
-
-            Console.WriteLine("=============Cachorro ==============");
-            foreach (KeyValuePair<(string, string, string), int> item in dictDog)
-            {
-                Console.WriteLine("chave: {0}, valor: {1}", item.Key, item.Value);
-            }
-            Console.WriteLine();
-
-            Console.WriteLine("=============Gato ==============");
-            foreach (KeyValuePair<(string, string), int> item in dictCat)
-            {
-                Console.WriteLine("chave: {0}, valor: {1}", item.Key, item.Value);
-            }
-            Console.WriteLine();
         }
     }
 }
