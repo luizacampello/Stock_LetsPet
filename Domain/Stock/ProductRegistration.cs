@@ -44,8 +44,30 @@ namespace Stock.Domain.Stock
             }
             return Category.Shampoo;
         }
+        public Usage SelectUsage()
+        {
+            Console.WriteLine("Qual o tipo de uso do produto: Digite:\n1 para Comum\n2 para Especial");
+            var inputUsage = Console.ReadLine();
+            switch (inputUsage)
+            {
+                case "1":
+                    return Usage.General;
 
-        
+
+                case "2":
+                    return Usage.Special;
+
+
+                default:
+
+                    Console.WriteLine("Entrada invalida, tente novamente");
+                    SelectUsage();
+                    break;
+            }
+            return Usage.General;
+        }
+
+
 
     }
 
