@@ -17,7 +17,30 @@ namespace Stock.Domain.Stock
         public DateTime ExpirationDate { get; set; }
         public Species Species { get; set; }
 
-        
+
+        public Type SelectUsage()
+        {
+            Console.WriteLine("Qual o tipo de uso do produto: Digite:\n1 para Comum\n2 para Especial");
+            var inputUsage = Console.ReadLine();
+            switch (inputUsage)
+            {
+                case "1":
+                    return Usage.;
+
+
+                case "2":
+                    return Type.Conditioner;
+
+               
+                default:
+
+                    Console.WriteLine("Entrada invalida, tente novamente");
+                    SelectUsage();
+                    break;
+            }
+            return Type.Shampoo;
+        }
+
     }
 
 

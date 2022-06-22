@@ -12,17 +12,17 @@ namespace Stock.Domain.Stock
         private int minAmount = 2;
         private int maxAmount = 20;
 
-        //void newProduct()
-        //{
-        //    newProductType();
-        //    newProductName();
-        //    newProductBrand();
+        void newProduct()
+        {
+            newProductType();
+            newProductName();
+            newProductBrand();
             
 
 
 
 
-        //}
+        }
         public Type SelectType()
         {
             Console.WriteLine("Qual o tipo de produto: Digite:\n1 para Shampoo\n2 para Condicionador\n3 para Perfume");
