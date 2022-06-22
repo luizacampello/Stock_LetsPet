@@ -37,7 +37,7 @@ namespace Stock.Domain.Stock
 
         void AddToStock(Product newProduct)
         {
-            switch (newProduct.type)
+            switch (newProduct.Type)
             {
                 case Type.Shampoo:
                     StoredShampoo.Add(newProduct);
@@ -58,24 +58,30 @@ namespace Stock.Domain.Stock
 
         Product RemoveFromStock(Type productType, Usage wantedProductUsage, Species wantedProductSpecies)
         {
+            int 
             switch (productType)
             {
                 case Type.Shampoo:
-                    ProductSearchSelection()
-                    StoredShampoo.Sort((x, y) => x.ExpirationDate.CompareTo(y.ExpirationDate));
-                    return;
+                    int productIndex = ProductSearchSelection(StoredShampoo, wantedProductUsage, wantedProductSpecies);
+                    Product ProductToOpen = StoredShampoo[productIndex];
+                    StoredShampoo.RemoveAt(productIndex);
+                    return ProductToOpen;
                 case Type.Conditioner:
-                    StoredConditioner.Add(newProduct);
-                    StoredConditioner.Sort((x, y) => x.ExpirationDate.CompareTo(y.ExpirationDate));
-                    return;
+                    int productIndex = ProductSearchSelection(StoredConditioner, wantedProductUsage, wantedProductSpecies);
+                    Product ProductToOpen = StoredShampoo[productIndex];
+                    StoredShampoo.RemoveAt(productIndex);
+                    return ProductToOpen;
                 case Type.Perfume:
-                    StoredPerfume.Add(newProduct);
-                    StoredPerfume.Sort((x, y) => x.ExpirationDate.CompareTo(y.ExpirationDate));
-                    return;
+                    int productIndex = ProductSearchSelection(StoredPerfume, wantedProductUsage, wantedProductSpecies);
+                    Product ProductToOpen = StoredShampoo[productIndex];
+                    StoredShampoo.RemoveAt(productIndex);
+                    return ProductToOpen;
+
                 default:
                     break;
             }
         }
+        
 
         int ProductSearchSelection(List<Product> typeStock, Usage wantedProductUsage, Species wantedProductSpecies)
         {
