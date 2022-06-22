@@ -2,7 +2,7 @@
 
 namespace Stock.Domain.Stock
 {
-    public enum Type
+    public enum Category
     {
         Shampoo,
         Conditioner,
