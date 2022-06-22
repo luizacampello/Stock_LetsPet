@@ -61,7 +61,7 @@ namespace Stock.Domain.Stock
             switch (productType)
             {
                 case Type.Shampoo:
-                    ProductSearchSelection()
+                    ProductSearchSelection();
                     StoredShampoo.Sort((x, y) => x.ExpirationDate.CompareTo(y.ExpirationDate));
                     return;
                 case Type.Conditioner:
