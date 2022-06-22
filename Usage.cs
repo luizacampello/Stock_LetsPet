@@ -6,8 +6,9 @@ using System.Threading.Tasks;
 
 namespace Stock
 {
-    internal class ProductInUse
+    public enum Usage
     {
-
+        Special,
+        General,
     }
 }
