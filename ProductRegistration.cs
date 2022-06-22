@@ -13,7 +13,8 @@ namespace Stock
 
         void newProduct()
         {
-
+            newProductType
         }
+
     }
 }
