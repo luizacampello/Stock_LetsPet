@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Stock.Domain.Common;
+using System;
 using System.Collections.Generic;
 
 namespace Stock.Domain.Stock

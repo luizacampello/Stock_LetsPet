@@ -11,15 +11,20 @@ namespace Stock.Domain.Stock
         private int minAmount = 2;
         private int maxAmount = 20;
 
-        void newProduct()
+        void NewProductRegistry()
         {
-            newProductType();
-            newProductName();
-            newProductBrand();
+            Product newProduct = new();
+            newProduct.type = newProductType();
+            newProduct.Usage = newProductUsage();
+            newProduct.Name = newProductName();
+            newProduct.Brand = newProductBrand();
+
+
 
 
 
         }
+
 
     }
 }
