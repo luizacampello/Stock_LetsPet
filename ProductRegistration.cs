@@ -8,5 +8,12 @@ namespace Stock
 {
     internal class ProductRegistration
     {
+        private int minAmount = 2;
+        private int maxAmount = 20;
+
+        void newProduct()
+        {
+
+        }
     }
 }
