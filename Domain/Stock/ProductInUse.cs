@@ -14,6 +14,9 @@ namespace Stock.Domain.Stock
 
         
 
+
+
+
         /*int amountproduct = 0;
         var service = new Tuple<string,string,string> ();
 

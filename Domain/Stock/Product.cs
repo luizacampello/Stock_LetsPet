@@ -21,7 +21,7 @@ namespace Stock.Domain.Stock
 
         public Category SelectCategory()
         {
-            Console.WriteLine("Qual a categoria de produto: Digite:\n1 para Shampoo\n2 para Condicionador\n3 para Perfume");
+            Console.WriteLine(Messages.CategorySelectionMenu);
             var inputType = Console.ReadLine();
             switch (inputType)
             {
@@ -36,7 +36,7 @@ namespace Stock.Domain.Stock
 
                 default:
 
-                    Console.WriteLine("Entrada invalida, tente novamente");
+                    Console.WriteLine(Messages.inputError);
                     return SelectCategory();
 
             }
@@ -45,7 +45,7 @@ namespace Stock.Domain.Stock
 
         public Usage SelectUsage()
         {
-            Console.WriteLine("Qual o tipo de uso do produto: Digite:\n1 para Comum\n2 para Especial");
+            Console.WriteLine(Messages.UsageSelectionMenu);
             var inputUsage = Console.ReadLine();
             switch (inputUsage)
             {
@@ -59,7 +59,7 @@ namespace Stock.Domain.Stock
 
                 default:
 
-                    Console.WriteLine("Entrada invalida, tente novamente");
+                    Console.WriteLine(Messages.inputError);
                     return SelectUsage();
 
             }
@@ -157,7 +157,7 @@ namespace Stock.Domain.Stock
 
                 default:
 
-                    Console.WriteLine("Entrada invalida, tente novamente");
+                    Console.WriteLine(Messages.inputError);
                     return SelectSpecie();
 
             }

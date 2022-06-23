@@ -8,11 +8,16 @@ namespace Stock.Domain.Stock
 {
 	public static class Messages
 	{
-		public const string CategorySelectionMenu = "alo";
+		public const string CategorySelectionMenu = @"Selecione a categoria de produto 
+1 - Shampoo
+2 - Condicionador
+3 - Perfume";
 
-		public const string UsageSelectionMenu = "alo";
+		public const string UsageSelectionMenu = @"Qual o tipo de uso do produto: 
+1 - Comum
+2 - Especial";
 
-		public const string formatError = "alo";
+		public const string inputError = "Entrada invalida, tente novamente";
 
 
 	}
