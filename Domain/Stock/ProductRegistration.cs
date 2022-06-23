@@ -20,55 +20,6 @@ namespace Stock.Domain.Stock
             //newProduct.Name = newProductName();
             //newProduct.Brand = newProductBrand();
         }
-
-        public Category SelectType()
-        {            
-            Console.WriteLine("Qual o tipo de produto: Digite:\n1 para Shampoo\n2 para Condicionador\n3 para Perfume");
-            var inputType = Console.ReadLine();
-            switch (inputType)
-            {
-                case "1":
-                    return Category.Shampoo;
-                   
-                case "2":
-                    return Category.Conditioner;
-                   
-                case "3":
-                    return Category.Perfume;
-                    
-                default:
-
-                    Console.WriteLine("Entrada invalida, tente novamente");
-                    SelectType();
-                    break;
-            }
-            return Category.Shampoo;
-        }
-        public Usage SelectUsage()
-        {
-            Console.WriteLine("Qual o tipo de uso do produto: Digite:\n1 para Comum\n2 para Especial");
-            var inputUsage = Console.ReadLine();
-            switch (inputUsage)
-            {
-                case "1":
-                    return Usage.General;
-
-
-                case "2":
-                    return Usage.Special;
-
-
-                default:
-
-                    Console.WriteLine("Entrada invalida, tente novamente");
-                    SelectUsage();
-                    break;
-            }
-            return Usage.General;
-        }
-
-
-
     }
 
 }
