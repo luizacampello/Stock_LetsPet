@@ -9,7 +9,7 @@ namespace Stock.Domain.Stock
 {
     public class ConsumptionPerService
     {
-        static void Main(string[] args)
+        static void consumptionRegistry(string[] args)
         {
 
             var dictDog = new Dictionary<(Category category, Usage usage, BreedSize size), int>();

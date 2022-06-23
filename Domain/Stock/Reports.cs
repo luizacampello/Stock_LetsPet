@@ -18,7 +18,7 @@ namespace Stock.Domain.Stock
 
         void StockContentReport()
         {
-            if (stock.TypeQuantity(Category.Shampoo) != 0)
+            if (stock.ProductCategoryQuantity(Category.Shampoo) != 0)
             {
                 Console.WriteLine("Lista de shampoos disponíveis:");
                 foreach (Product shampoo in stock.StoredShampoo)
@@ -32,7 +32,7 @@ namespace Stock.Domain.Stock
             if (stock.StoredConditioner.Count != 0)
             {
                 Console.WriteLine("Lista de condicionadores disponíveis:");
-                foreach (Product conditioner in StoredConditioner)
+                foreach (Product conditioner in stock.StoredConditioner)
                 {
 
                 }
@@ -40,10 +40,10 @@ namespace Stock.Domain.Stock
             else
                 Console.WriteLine("Não existem condicionadores no estoque.");
 
-            if (StoredPerfume.Count != 0)
+            if (stock.StoredPerfume.Count != 0)
             {
                 Console.WriteLine("Lista de perfumes disponíveis:");
-                foreach (Product perfume in StoredPerfume)
+                foreach (Product perfume in stock.StoredPerfume)
                 {
 
                 }

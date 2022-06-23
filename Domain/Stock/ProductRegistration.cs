@@ -15,10 +15,10 @@ namespace Stock.Domain.Stock
         void NewProductRegistry()
         {
             Product newProduct = new();
-            newProduct.Category = newProductCategory();
-            newProduct.Usage = newProductUsage();
-            newProduct.Name = newProductName();
-            newProduct.Brand = newProductBrand();
+            //newProduct.Category = newProductCategory();
+            //newProduct.Usage = newProductUsage();
+            //newProduct.Name = newProductName();
+            //newProduct.Brand = newProductBrand();
         }
 
         public Category SelectType()
