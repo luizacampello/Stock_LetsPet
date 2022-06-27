@@ -35,7 +35,7 @@ namespace Stock.Domain.Stock
             return 0;
         }
 
-        void AddToStock(Product newProduct)
+        public void AddToStock(Product newProduct)
         {
             switch (newProduct.Category)
             {

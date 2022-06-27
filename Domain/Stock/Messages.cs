@@ -17,7 +17,8 @@ namespace Stock.Domain.Stock
 1 - Comum
 2 - Especial";
 
-		public const string formatError = "Entrada invalida, tente novamente";
+		public const string formatError = @"
+Entrada invalida, tente novamente";
 
 		public const string inputName = "Qual o nome do produto?";
 
@@ -25,12 +26,15 @@ namespace Stock.Domain.Stock
 
 		public const string inputPrice = "Qual o preço do produto?";
 
-		public const string inputTotalVolume = "Quantos ml o produto possúi?";
+		public const string inputTotalVolume = "Qual o tamanho do produto em ml?";
 
 		public const string inputExpirationDate = "Qual a data de validade do produto?";
 
 		public const string SpecieSelectionMenu = @"Para qual tipo de espécie o produto é indicado:
 1 - Cachorro
 2 - Gato";
+
+		public const string invalidNullInput = @"
+Não é possível inserir um valor em branco. Tente Novamente.";
 	}
 }
