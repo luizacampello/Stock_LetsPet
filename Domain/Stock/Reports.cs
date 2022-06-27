@@ -57,7 +57,7 @@ namespace Stock.Domain.Stock
             
         }
 
-        void PrintProduct()
+        void PrintProduct(Product product)
         {
 
         }
