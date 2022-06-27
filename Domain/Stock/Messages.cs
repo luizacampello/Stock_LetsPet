@@ -36,5 +36,17 @@ Entrada invalida, tente novamente";
 
 		public const string invalidNullInput = @"
 Não é possível inserir um valor em branco. Tente Novamente.";
+		
+		public const string ReportSelectionMenu = @"Selecione sua alternativa:
+1 - Relatório por nome de produto
+2 - Relatório por tipo de produto
+3 - Relatório por marca
+
+Ou pressione ENTER para o relatório com todos os produtos.";
+
+		public const string ReportTypeMenu = @"Selecione sua alternativa:
+1 - Shampoo
+2 - Condicionador
+3 - Perfume";
 	}
 }
