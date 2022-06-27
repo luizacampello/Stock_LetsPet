@@ -32,5 +32,17 @@ namespace Stock.Domain.Stock
 		public const string SpecieSelectionMenu = @"Para qual tipo de espécie o produto é indicado:
 1 - Cachorro
 2 - Gato";
+		
+		public const string ReportSelectionMenu = @"Selecione sua alternativa:
+1 - Relatório por nome de produto
+2 - Relatório por tipo de produto
+3 - Relatório por marca
+
+Ou pressione ENTER para o relatório com todos os produtos.";
+
+		public const string ReportTypeMenu = @"Selecione sua alternativa:
+1 - Shampoo
+2 - Condicionador
+3 - Perfume";
 	}
 }
