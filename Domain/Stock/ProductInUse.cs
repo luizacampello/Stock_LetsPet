@@ -12,14 +12,8 @@ namespace Stock.Domain.Stock
         public List<Product> OpenConditioner { get; private set; } = new();
         public List<Product> OpenPerfume { get; private set;  } = new();
 
-        
-
-
-
-
         /*int amountproduct = 0;
         var service = new Tuple<string,string,string> ();
-
         
         public int getConsumptionPerService()
         {
@@ -109,9 +103,7 @@ namespace Stock.Domain.Stock
                 OpenPerfume.Add(perfume);
                 perfume.CurrentVolume = TotalVolume - amountproduct;
             }
-        }*/
-
-       
+        }*/    
 
 
     }
