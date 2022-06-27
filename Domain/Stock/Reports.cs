@@ -52,9 +52,23 @@ namespace Stock.Domain.Stock
                 Console.WriteLine("Não existem perfumes no estoque.");
         }
 
-        void Search()
+        void SearchByName()
         {
-            
+            bool found = false;
+            var stock = stock.GetFullStock();
+            foreach (Product product in Stock.GetFullStock())
+            {
+                if (contract.contractor == contractor)
+                {
+                    contract.ExibirInfo();
+                    found = true;
+                }
+            }
+
+            if (!found)
+            {
+                Console.WriteLine(Messages.contratanteNotInContractsList);
+            }
         }
 
         void PrintProduct(Product product)

@@ -7,18 +7,28 @@ namespace Stock.Domain.Stock
     public class Product
     {
 
-        public Category Category { get; set; }
-        public Usage Usage { get; set; }
-        public string Name { get; set; }
-        public string Brand { get; set; }
-        public decimal Price { get; set; }
-        public int TotalVolume { get; set; }
-        public int CurrentVolume { get; set; }
-        public DateTime ExpirationDate { get; set; }
-        public Species Species { get; set; }
+        public Category Category { get; private set; }
+        public Usage Usage { get; private set; }
+        public string Name { get; private set; }
+        public string Brand { get; private set; }
+        public decimal Price { get; private set; }
+        public int TotalVolume { get; private set; }
+        public int CurrentVolume { get; private set; }
+        public DateTime ExpirationDate { get; private set; }
+        public Species Species { get; private set; }
 
-
-        
+        public Product(Category category, Usage usage, string name, string brand, decimal price, int totalVolume, DateTime expirationDate, Species species)
+        {
+            Category = category;
+            Usage = usage;
+            Name = name;
+            Brand = brand;
+            Price = price;
+            TotalVolume = totalVolume;
+            CurrentVolume = totalVolume;
+            ExpirationDate = expirationDate;
+            Species = species;
+        }
     }
 
 }
