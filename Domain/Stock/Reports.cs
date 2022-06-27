@@ -66,6 +66,7 @@ namespace Stock.Domain.Stock
 
         }
 
+        void SearchByName()
         public void ShowFullStock()
         {
             //List<Product> fullStock = stock.GetFullStock();
@@ -88,6 +89,21 @@ namespace Stock.Domain.Stock
                     break;
                 case 3:
                     break;
+            }
+            bool found = false;
+            var stock = stock.GetFullStock();
+            foreach (Product product in Stock.GetFullStock())
+            {
+                if (contract.contractor == contractor)
+                {
+                    contract.ExibirInfo();
+                    found = true;
+                }
+            }
+
+            if (!found)
+            {
+                Console.WriteLine(Messages.contratanteNotInContractsList);
             }
         }
 
