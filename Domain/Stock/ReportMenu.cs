@@ -17,7 +17,7 @@ namespace Stock.Domain.Stock
 
         string input;
 
-        void validaInput()
+        public void ReportInputValidation()
         {
             input = "";
             while (string.IsNullOrWhiteSpace(input))
@@ -29,20 +29,20 @@ namespace Stock.Domain.Stock
         }
 
 
-        void MenuMarca()
+        public void ReportBrandMenu()
         {
             Console.WriteLine(Messages.ReportBrandMenu);
-            validaInput();
+            ReportInputValidation();
             reports.SearchResultsByBrand(input);
         }
 
-        void MenuNome()
+        public void ReportNameMenu()
         {
             Console.WriteLine(Messages.ReportNameMenu);
-            validaInput();
+            ReportInputValidation();
             reports.SearchResultsByName(input);
         }
-        void MenuTipo()
+        public void ReportTypeMenu()
         {
             Console.WriteLine(Messages.ReportTypeMenu);
             input = Console.ReadLine();
@@ -62,12 +62,12 @@ namespace Stock.Domain.Stock
                     break;
                 default:
                     Console.WriteLine(Messages.InvalidOption);
-                    MenuTipo();
+                    ReportTypeMenu();
                     break;
             }
         }
 
-        void MenuDeSelecao()
+        public void ReportMainMenu()
         {
             Console.WriteLine(Messages.ReportSelectionMenu);
             input = Console.ReadLine();
@@ -77,17 +77,17 @@ namespace Stock.Domain.Stock
                 switch (input)
                 {
                     case "1":
-                        MenuNome();
+                        ReportNameMenu();
                         break;
                     case "2":
-                        MenuTipo();
+                        ReportTypeMenu();
                         break;
                     case "3":
-                        MenuMarca();
+                        ReportBrandMenu();
                         break;
                     default:
                         Console.WriteLine(Messages.InvalidOption);
-                        MenuDeSelecao();
+                        ReportMainMenu();
                         break;
                 }
         }
