@@ -52,7 +52,7 @@ namespace Stock.Domain.Stock
             Category wantedProductType = InputServices.SelectCategory();
             Usage wantedProductUsage = InputServices.SelectUsage();
             Species wantedProductSpecies = InputServices.SelectSpecies();
-            Product removedProduct = Stock.RemoveFromStock(wantedProductType, wantedProductUsage, wantedProductSpecies);
+            Product removedProduct = Stock.RemoveFromStock(petStock, wantedProductType, wantedProductUsage, wantedProductSpecies);
             Reports.PrintProduct(removedProduct);
         }
 

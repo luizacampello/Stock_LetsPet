@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 namespace Stock.Services
 {
     
+    /*
     public class StockMain
     {
         public static int option;
@@ -51,5 +52,6 @@ namespace Stock.Services
             } while (loop);
         }
     }
+    */
     
 }
