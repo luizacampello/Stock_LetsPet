@@ -18,30 +18,30 @@ namespace Stock.Domain
         {
             if (storage.ProductCategoryQuantity(Category.Shampoo) != 0)
             {
-                Console.WriteLine("Lista de shampoos disponíveis:");
+                Console.WriteLine(Messages.listOfProducts + Category.Shampoo + ":");
                 foreach (Product shampoo in storage.StoredShampoo)
                     PrintProduct(shampoo);
             }
             else
-                Console.WriteLine("Não existem shampoos no estoque.");
+                Console.WriteLine(Messages.noProductsAvailable + Category.Shampoo + ".");
 
             if (storage.StoredCondicionador.Count != 0)
             {
-                Console.WriteLine("Lista de condicionadores disponíveis:");
+                Console.WriteLine(Messages.listOfProducts + Category.Condicionador + ":");
                 foreach (Product conditioner in storage.StoredCondicionador)
                     PrintProduct(conditioner);
             }
             else
-                Console.WriteLine("Não existem condicionadores no estoque.");
+                Console.WriteLine(Messages.noProductsAvailable + Category.Condicionador + ".");
 
             if (storage.StoredPerfume.Count != 0)
             {
-                Console.WriteLine($"Lista de perfumes disponíveis:");
+                Console.WriteLine(Messages.listOfProducts + Category.Perfume + ":");
                 foreach (Product perfume in storage.StoredPerfume)
                     PrintProduct(perfume);
             }
             else
-                Console.WriteLine("Não existem perfumes no estoque.");
+                Console.WriteLine(Messages.noProductsAvailable + Category.Perfume + ".");
         }
 
         public void SearchResultsByType(List<Product> products)

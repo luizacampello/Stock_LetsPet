@@ -82,5 +82,8 @@ Ou pressione ENTER para o relatório com todos os produtos.";
 
         public const string sucessfullNewProductRegistry = "Produto cadastrado com sucesso!";
 
+        public const string listOfProducts = $"Lista de produtos disponíveis do tipo ";
+
+        public const string noProductsAvailable = "Não existem produtos disponíveis do tipo ";
     }
 }
