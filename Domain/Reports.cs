@@ -36,7 +36,7 @@ namespace Stock.Domain
 
             if (storage.StoredPerfume.Count != 0)
             {
-                Console.WriteLine("Lista de perfumes disponíveis:");
+                Console.WriteLine($"Lista de perfumes disponíveis:");
                 foreach (Product perfume in storage.StoredPerfume)
                     PrintProduct(perfume);
             }
@@ -62,7 +62,7 @@ namespace Stock.Domain
                 }
             }
             if (!found)
-                Console.WriteLine(Messages.NoResults);
+                Console.WriteLine(Messages.noResults);
         }
 
         public void SearchResultsByBrand(string brandInput)
@@ -77,7 +77,7 @@ namespace Stock.Domain
                 }
             }
             if (!found)
-                Console.WriteLine(Messages.NoResults);
+                Console.WriteLine(Messages.noResults);
         }
 
         public void ShowFullStock()

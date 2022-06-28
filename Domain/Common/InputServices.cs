@@ -58,7 +58,7 @@ namespace Stock.Domain.Common
 
         public static Category SelectCategory()
         {
-            Console.WriteLine(Messages.CategorySelectionMenu);
+            Console.WriteLine(Messages.categorySelectionMenu);
             var inputType = UserInput();
             switch (inputType)
             {
@@ -79,7 +79,7 @@ namespace Stock.Domain.Common
 
         public static Usage SelectUsage()
         {
-            Console.WriteLine(Messages.UsageSelectionMenu);
+            Console.WriteLine(Messages.usageSelectionMenu);
             var inputUsage = UserInput();
             switch (inputUsage)
             {
@@ -159,7 +159,7 @@ namespace Stock.Domain.Common
 
         public static Species SelectSpecies()
         {
-            Console.WriteLine(Messages.SpecieSelectionMenu);
+            Console.WriteLine(Messages.specieSelectionMenu);
             var inputSpecie = UserInput();
             switch (inputSpecie)
             {

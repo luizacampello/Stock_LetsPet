@@ -46,7 +46,7 @@ namespace Stock.Domain
 
         private void MenuSelection()
         {
-            Console.WriteLine(Messages.MenuProductTest);
+            Console.WriteLine(Messages.menuProductTest);
             string userInput = InputServices.UserInput();
             switch (userInput)
             {
@@ -135,21 +135,21 @@ namespace Stock.Domain
 
         public void ReportBrandMenu(string userInput)
         {
-            Console.WriteLine(Messages.ReportBrandMenu);
+            Console.WriteLine(Messages.reportBrandMenu);
             InputServices.UserInput();
             reports.SearchResultsByBrand(userInput);
         }
 
         public void ReportNameMenu(string userInput)
         {
-            Console.WriteLine(Messages.ReportNameMenu);
+            Console.WriteLine(Messages.reportNameMenu);
             InputServices.UserInput();
             reports.SearchResultsByName(userInput);
         }
 
         public void ReportTypeMenu()
         {
-            Console.WriteLine(Messages.ReportTypeMenu);
+            Console.WriteLine(Messages.reportTypeMenu);
             string userInput = Console.ReadLine();
             switch (userInput)
             {
@@ -166,7 +166,7 @@ namespace Stock.Domain
                     reports.StockContentReport();
                     break;
                 default:
-                    Console.WriteLine(Messages.InvalidOption);
+                    Console.WriteLine(Messages.invalidOption);
                     ReportTypeMenu();
                     break;
             }
@@ -174,7 +174,7 @@ namespace Stock.Domain
 
         public void ReportMainMenu()
         {
-            Console.WriteLine(Messages.ReportSelectionMenu);
+            Console.WriteLine(Messages.reportSelectionMenu);
             string userInput = Console.ReadLine();
             if (string.IsNullOrWhiteSpace(userInput))
                 reports.ShowFullStock();
@@ -191,7 +191,7 @@ namespace Stock.Domain
                         ReportBrandMenu(userInput);
                         break;
                     default:
-                        Console.WriteLine(Messages.InvalidOption);
+                        Console.WriteLine(Messages.invalidOption);
                         ReportMainMenu();
                         break;
                 }
