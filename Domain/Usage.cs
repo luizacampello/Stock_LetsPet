@@ -8,7 +8,7 @@ namespace Stock.Domain
 {
     public enum Usage
     {
-        Especial,
         Geral,
+        Especial,
     }
 }

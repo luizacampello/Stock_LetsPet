@@ -15,7 +15,7 @@ namespace Stock.Domain
 ";
 
         public const string UsageSelectionMenu = @"Qual o tipo de uso do produto: 
-1 - Comum
+1 - Geral
 2 - Especial
 ";
 
@@ -77,6 +77,7 @@ Ou pressione ENTER para o relatório com todos os produtos.";
 1 - Cadastro de Produtos 
 2 - Relatório de Estoque 
 3 - Voltar ao menu anterior";
+
         public const string productNotFound = "Não existem produtos cadastrados que correspondem as características solicitadas.";
 
     }
