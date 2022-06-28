@@ -10,12 +10,12 @@ namespace Stock.Domain
     public class Stock
     {
         public List<Product> StoredShampoo { get; private set; } = new();
-        public List<Product> StoredConditioner { get; private set; } = new();
+        public List<Product> StoredCondicionador { get; private set; } = new();
         public List<Product> StoredPerfume { get; private set; } = new();
 
         public List<Product> GetFullStock()
         {
-            List<Product> fullStock = StoredShampoo.Concat(StoredConditioner).Concat(StoredPerfume).ToList();
+            List<Product> fullStock = StoredShampoo.Concat(StoredCondicionador).Concat(StoredPerfume).ToList();
             return fullStock;
         }
 
@@ -25,8 +25,8 @@ namespace Stock.Domain
             {
                 case Category.Shampoo:
                     return StoredShampoo.Count;
-                case Category.Conditioner:
-                    return StoredConditioner.Count;
+                case Category.Condicionador:
+                    return StoredCondicionador.Count;
                 case Category.Perfume:
                     return StoredPerfume.Count;
                 default:
@@ -43,9 +43,9 @@ namespace Stock.Domain
                     StoredShampoo.Add(newProduct);
                     StoredShampoo.Sort((x, y) => x.ExpirationDate.CompareTo(y.ExpirationDate));
                     return;
-                case Category.Conditioner:
-                    StoredConditioner.Add(newProduct);
-                    StoredConditioner.Sort((x, y) => x.ExpirationDate.CompareTo(y.ExpirationDate));
+                case Category.Condicionador:
+                    StoredCondicionador.Add(newProduct);
+                    StoredCondicionador.Sort((x, y) => x.ExpirationDate.CompareTo(y.ExpirationDate));
                     return;
                 case Category.Perfume:
                     StoredPerfume.Add(newProduct);
@@ -56,21 +56,19 @@ namespace Stock.Domain
             }
         }
 
-        public Product RemoveFromStock(Category productType, Usage wantedProductUsage, Species wantedProductSpecies)
+        private Product ProductRemovalFromStock(int productIndex, Category productType)
         {
-            int productIndex = -1;
             Product newProduct = new();
 
             switch (productType)
             {
-                case Category.Shampoo:
-                    productIndex = SearchWantedProduct(StoredShampoo, wantedProductUsage, wantedProductSpecies);
+                case Category.Shampoo:                    
                     return StoredShampoo.Pop(productIndex);
-                case Category.Conditioner:
-                    productIndex = SearchWantedProduct(StoredConditioner, wantedProductUsage, wantedProductSpecies);
-                    return StoredConditioner.Pop(productIndex);
-                case Category.Perfume:
-                    productIndex = SearchWantedProduct(StoredPerfume, wantedProductUsage, wantedProductSpecies);
+
+                case Category.Condicionador:                    
+                    return StoredCondicionador.Pop(productIndex);
+
+                case Category.Perfume:                   
                     return StoredPerfume.Pop(productIndex);
 
                 default:
@@ -79,7 +77,7 @@ namespace Stock.Domain
             return newProduct;
         }
 
-        private static int SearchWantedProduct(List<Product> CategoryStock, Usage wantedProductUsage, Species wantedProductSpecies)
+        private int SearchWantedProduct(List<Product> CategoryStock, Usage wantedProductUsage, Species wantedProductSpecies)
         {
             int productIndex = -1;
 
@@ -94,6 +92,36 @@ namespace Stock.Domain
             }
 
             return productIndex;
+        }
+
+        public void ValidateProductRemoval(Category wantedProductCategory, Usage wantedProductUsage, Species wantedProductSpecies)
+        {
+            int productIndex = -1;
+            switch (wantedProductCategory)
+            {
+                case Category.Shampoo:
+                    productIndex = SearchWantedProduct(StoredShampoo, wantedProductUsage, wantedProductSpecies);
+                    break;
+
+                case Category.Condicionador:
+                    productIndex = SearchWantedProduct(StoredCondicionador, wantedProductUsage, wantedProductSpecies);
+                    break;
+
+                case Category.Perfume:
+                    productIndex = SearchWantedProduct(StoredPerfume, wantedProductUsage, wantedProductSpecies);
+                    break;
+
+                default:
+                    break;
+            }
+
+            if (productIndex == -1)
+            {
+                Console.WriteLine(Messages.productNotFound);
+                return;
+            }
+            ProductRemovalFromStock(productIndex, wantedProductCategory);
+            return;
         }
 
     }

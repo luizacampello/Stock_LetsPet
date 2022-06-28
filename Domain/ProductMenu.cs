@@ -22,13 +22,26 @@ namespace Stock.Domain
         }
         public void BeginProgram()
         {
+            TestCreatedStock();
             MenuSelection();
         }
 
         private void NewProductTest()
         {
-            Product newProduct = registry.NewProductProperties();
-            registry.AddNewProductToStock(newProduct);
+            bool validProductRegistry = false;
+
+            do
+            {
+                validProductRegistry = registry.NewProductRegistryValidation();
+
+                if (!validProductRegistry)
+                {
+                    validProductRegistry = InputServices.ReturnSwitch();
+                }
+            } 
+            while (!validProductRegistry);
+
+            ReturnProgram();
         }
 
         private void MenuSelection()
@@ -61,8 +74,7 @@ namespace Stock.Domain
             Category wantedProductType = InputServices.SelectCategory();
             Usage wantedProductUsage = InputServices.SelectUsage();
             Species wantedProductSpecies = InputServices.SelectSpecies();
-            Product removedProduct = storage.RemoveFromStock(wantedProductType, wantedProductUsage, wantedProductSpecies);
-            reports.PrintProduct(removedProduct);
+            storage.ValidateProductRemoval(wantedProductType, wantedProductUsage, wantedProductSpecies);            
         }
 
         private void PrintStock()
@@ -78,37 +90,35 @@ namespace Stock.Domain
         private void ReturnProgram()
         {
             Console.WriteLine();
-            Console.WriteLine();
             Console.Write(Messages.returnEntryKey);
             Console.ReadKey();
+            Console.Clear();
             MenuSelection();
             return;
         }
 
-        public Stock CreatedStock()
+        public void TestCreatedStock()
         {
             Product InicialShampoo = new Product(Category.Shampoo, Usage.Geral, "Pet Clean 5 em 1",
                 "Pet Clean", 14, 700, DateTime.Now.AddYears(1), Species.Cachorro);
-            Product InicialConditioner = new Product(Category.Conditioner, Usage.Geral, "Sanol Dog revitalizante",
+            Product InicialConditioner = new Product(Category.Condicionador, Usage.Geral, "Sanol Dog revitalizante",
                 "Sanol", 17, 500, DateTime.Now.AddYears(1), Species.Cachorro);
             Product InicialPerfume = new Product(Category.Perfume, Usage.Geral, "Colônia Me.Au Pet Cheirinho de Bebê",
                 "Me.Au Pet", 13, 120, DateTime.Now.AddYears(1), Species.Cachorro);
 
-            Stock estoque = new Stock();
-            estoque.AddToStock(InicialShampoo);
-            estoque.AddToStock(InicialConditioner);
-            estoque.AddToStock(InicialPerfume);
-            return estoque;
+            storage.AddToStock(InicialShampoo);
+            storage.AddToStock(InicialConditioner);
+            storage.AddToStock(InicialPerfume);
+            return;
         }
 
         public void DefaultMenuStock()
         {
-            Stock storage = CreatedStock();
-            string inputType = InputServices.UserInput();
-            switch (inputType)
+            string userInputType = InputServices.UserInput();
+            switch (userInputType)
             {
                 case "1":
-                    storage.AddToStock(registry.NewProductProperties());
+                    registry.NewProductRegistryValidation();
                     return;
                 case "2":
                     //relatorio.MenuDeSelecao();
@@ -140,14 +150,14 @@ namespace Stock.Domain
         public void ReportTypeMenu()
         {
             Console.WriteLine(Messages.ReportTypeMenu);
-            string input = Console.ReadLine();
-            switch (input)
+            string userInput = Console.ReadLine();
+            switch (userInput)
             {
                 case "1":
                     reports.SearchResultsByType(storage.StoredShampoo);
                     break;
                 case "2":
-                    reports.SearchResultsByType(storage.StoredConditioner);
+                    reports.SearchResultsByType(storage.StoredCondicionador);
                     break;
                 case "3":
                     reports.SearchResultsByType(storage.StoredPerfume);
@@ -165,20 +175,20 @@ namespace Stock.Domain
         public void ReportMainMenu()
         {
             Console.WriteLine(Messages.ReportSelectionMenu);
-            string input = Console.ReadLine();
-            if (string.IsNullOrWhiteSpace(input))
+            string userInput = Console.ReadLine();
+            if (string.IsNullOrWhiteSpace(userInput))
                 reports.ShowFullStock();
             else
-                switch (input)
+                switch (userInput)
                 {
                     case "1":
-                        ReportNameMenu(input);
+                        ReportNameMenu(userInput);
                         break;
                     case "2":
                         ReportTypeMenu();
                         break;
                     case "3":
-                        ReportBrandMenu(input);
+                        ReportBrandMenu(userInput);
                         break;
                     default:
                         Console.WriteLine(Messages.InvalidOption);
@@ -186,7 +196,6 @@ namespace Stock.Domain
                         break;
                 }
         }
-
-       
+               
     }
 }

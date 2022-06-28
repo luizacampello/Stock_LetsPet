@@ -21,6 +21,8 @@ namespace Stock.Domain
 
         public const string invalidQuantity = "Quantidade inválida, tente novamente!";
 
+        public const string maxedOutQuantity = "Não é possível cadastrar mais produtos desse tipo, gostaria de tentar cadastrar um produto de outra categoria? (Sim/Não)";
+
         public const string inputName = "Qual o nome do produto? ";
 
         public const string inputBrand = "Qual a marca do produto? ";
@@ -36,11 +38,9 @@ namespace Stock.Domain
 2 - Gato
 ";
 
-        public const string invalidNullInput = @"
-Não é possível inserir um valor em branco, tente novamente!";
+        public const string invalidNullInput = @"Não é possível inserir um valor em branco, tente novamente!";
 
-        public const string formatError = @"
-Entrada inválida, tente novamente!";
+        public const string formatError = @"Entrada inválida, tente novamente!";
 
         public const string ReportSelectionMenu = @"Selecione sua alternativa:
 1 - Relatório por nome de produto
@@ -61,16 +61,15 @@ Ou pressione ENTER para o relatório com todos os produtos.";
 
         public const string ReportBrandMenu = "Digite a marca dos produtos desejados: ";
 
-        public const string NullInput = "Input não pode ser vazio.";
-
         public const string InvalidOption = "Opção inválida.";
-        public const string MenuProductTest = @"
-1 - Novo Produto
+
+        public const string MenuProductTest = @"1 - Novo Produto
 2 - Ver estoque 
-3 - Retirar Produto
-";
+3 - Retirar Produto";
 
         public const string returnEntryKey = "Digite qualquer tecla para retornar ao menu inicial ";
+
+        public const string sucessfullNewProductRegistry = "Produto cadastrado com sucesso!";
 
         public const string inputQuantity = "Quantos produtos serão cadastrados?";
     
@@ -78,6 +77,7 @@ Ou pressione ENTER para o relatório com todos os produtos.";
 1 - Cadastro de Produtos 
 2 - Relatório de Estoque 
 3 - Voltar ao menu anterior";
+        public const string productNotFound = "Não existem produtos cadastrados que correspondem as características solicitadas.";
 
     }
 }

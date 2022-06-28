@@ -17,16 +17,16 @@ namespace Stock.Domain
             dictDog.Add((Category.Shampoo, Usage.Geral, BreedSize.Pequeno), 100);
             dictDog.Add((Category.Shampoo, Usage.Especial, BreedSize.Grande), 150);
             dictDog.Add((Category.Shampoo, Usage.Especial, BreedSize.Pequeno), 75);
-            dictDog.Add((Category.Conditioner, Usage.Geral, BreedSize.Grande), 50);
-            dictDog.Add((Category.Conditioner, Usage.Geral, BreedSize.Pequeno), 25);
-            dictDog.Add((Category.Conditioner, Usage.Especial, BreedSize.Grande), 20);
-            dictDog.Add((Category.Conditioner, Usage.Especial, BreedSize.Pequeno), 10);
+            dictDog.Add((Category.Condicionador, Usage.Geral, BreedSize.Grande), 50);
+            dictDog.Add((Category.Condicionador, Usage.Geral, BreedSize.Pequeno), 25);
+            dictDog.Add((Category.Condicionador, Usage.Especial, BreedSize.Grande), 20);
+            dictDog.Add((Category.Condicionador, Usage.Especial, BreedSize.Pequeno), 10);
 
             var dictCat = new Dictionary<(Category category, Usage usage), int>();
             dictCat.Add((Category.Shampoo, Usage.Geral), 50);
             dictCat.Add((Category.Shampoo, Usage.Especial), 20);
-            dictCat.Add((Category.Conditioner, Usage.Geral), 15);
-            dictCat.Add((Category.Conditioner, Usage.Especial), 10);
+            dictCat.Add((Category.Condicionador, Usage.Geral), 15);
+            dictCat.Add((Category.Condicionador, Usage.Especial), 10);
 
         }
     }

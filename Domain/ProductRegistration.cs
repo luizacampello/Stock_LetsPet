@@ -19,29 +19,20 @@ namespace Stock.Domain
             this.storage = storage;
         }
 
-        public Product NewProductProperties()
-        {
-            Category newProductCategory = InputServices.SelectCategory();
-            int newProductQuantity = InputServices.NewQuantity();
-            Usage newProductUsage = InputServices.SelectUsage();
-            string newProductName = InputServices.NewName();
-            string newProductBrand = InputServices.NewBrand();
-            decimal newProductPrice = InputServices.NewPrice();
-            int newProductTotalVolume = InputServices.NewTotalVolume();
-            DateTime newProductExpirationDate = InputServices.NewExpirationDate();
-            Species newProductSpecies = InputServices.SelectSpecies();
-            Product newProduct = new Product(newProductCategory, newProductUsage, newProductName, newProductBrand, newProductPrice,
-                                             newProductTotalVolume, newProductExpirationDate, newProductSpecies);
-            return newProduct;
-        }
-        public void NewProductRegistry()
+        public bool NewProductRegistryValidation()
         {
             Category newProductCategory = InputServices.SelectCategory();
             int allowedQuantity = AllowedQuantityByCategory(newProductCategory);
-            int newProductQuantity = InputServices.NewQuantity();
+            if (allowedQuantity > 0)
+            {
+                int newProductQuantity = InputServices.NewQuantity(allowedQuantity);
+                NewProductRegistry(newProductCategory, newProductQuantity);
+                return true;
+            }
+            return false;
         }
 
-        public void AddNewProductToStock(Product newProduct)
+        private void AddNewProductToStock(Product newProduct)
         {
             storage.AddToStock(newProduct);
         }
@@ -51,6 +42,25 @@ namespace Stock.Domain
             return maxAmount - storage.ProductCategoryQuantity(newProductCategory);
         }
 
+        private void NewProductRegistry(Category newProductCategory, int quantity)
+        {
+            Usage newProductUsage = InputServices.SelectUsage();
+            string newProductName = InputServices.NewName();
+            string newProductBrand = InputServices.NewBrand();
+            decimal newProductPrice = InputServices.NewPrice();
+            int newProductTotalVolume = InputServices.NewTotalVolume();
+            DateTime newProductExpirationDate = InputServices.NewExpirationDate();
+            Species newProductSpecies = InputServices.SelectSpecies();
+
+            for (int i = 0; i < quantity; i++)
+            {
+                Product newProduct = new Product(newProductCategory, newProductUsage, newProductName, newProductBrand, newProductPrice,
+                                             newProductTotalVolume, newProductExpirationDate, newProductSpecies);
+                AddNewProductToStock(newProduct);
+            }
+            Console.WriteLine(Messages.sucessfullNewProductRegistry);
+
+        }
     }
 
 }

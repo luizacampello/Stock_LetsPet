@@ -24,6 +24,7 @@ namespace Stock.Domain.Common
         public static string UserInput()
         {
             string userInput = Console.ReadLine();
+            Console.WriteLine();
             if (!string.IsNullOrWhiteSpace(userInput))
             {
                 return DefaultTextFormat(userInput);
@@ -65,7 +66,7 @@ namespace Stock.Domain.Common
                     return Category.Shampoo;
 
                 case "2":
-                    return Category.Conditioner;
+                    return Category.Condicionador;
 
                 case "3":
                     return Category.Perfume;
@@ -179,28 +180,46 @@ namespace Stock.Domain.Common
 
         }
 
-        public static int NewQuantity()
+        public static int NewQuantity(int allowedQuantity)
         {
-
-            Console.Write($"{Messages.inputQuantity} - 2");
-            var InQuantity = UserInput();
-            var correctQuantity = int.TryParse(InQuantity, out var InptQuantity);
-            if (correctQuantity)
+            Console.Write($"{Messages.inputQuantity} (É possível adicionar até {allowedQuantity} produto(s)): ");
+            string userInput = UserInput();
+            bool validFormatQuantity = int.TryParse(userInput, out int inputQuantity);
+            if (validFormatQuantity)
             {
-                if (InptQuantity >= 1 && InptQuantity <= 20)
+                if (inputQuantity >= 1 && inputQuantity <= allowedQuantity)
                 {
-                    return InptQuantity;
+                    return inputQuantity;
                 }
                 else
                 {
-                    Console.WriteLine();
-                    return NewTotalVolume();
+                    Console.WriteLine(Messages.invalidQuantity);
+                    return NewQuantity(allowedQuantity);
                 }
             }
             else
             {
                 Console.WriteLine(Messages.formatError);
-                return NewTotalVolume();
+                return NewQuantity(allowedQuantity);
+            }
+        }
+
+        public static bool ReturnSwitch()
+        {
+            Console.WriteLine(Messages.maxedOutQuantity);
+            string userInput = UserInput();
+            switch (userInput)
+            {
+                case "Sim":
+                    return false;
+
+                case "Não":
+                    return true;
+
+                default:
+                    Console.WriteLine(Messages.formatError);
+                    return ReturnSwitch();
+
             }
         }
 

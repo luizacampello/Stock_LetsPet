@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -24,10 +25,10 @@ namespace Stock.Domain
             else
                 Console.WriteLine("Não existem shampoos no estoque.");
 
-            if (storage.StoredConditioner.Count != 0)
+            if (storage.StoredCondicionador.Count != 0)
             {
                 Console.WriteLine("Lista de condicionadores disponíveis:");
-                foreach (Product conditioner in storage.StoredConditioner)
+                foreach (Product conditioner in storage.StoredCondicionador)
                     PrintProduct(conditioner);
             }
             else
@@ -88,14 +89,14 @@ namespace Stock.Domain
         public void PrintProduct(Product product)
         {
             Console.WriteLine(@$"Nome: {product.Name}
-Categoria: {product.Category}
-Espécie: {product.Species}
-Uso: {product.Usage}
 Marca: {product.Brand}
-Preço: {product.Price}
-Volume total: {product.TotalVolume}
-Volume restante: {product.CurrentVolume}
-Data de validade: {product.ExpirationDate.Date}
+- Categoria: {product.Category}
+- Espécie: {product.Species}
+- Uso: {product.Usage}
+- Preço: {product.Price.ToString("C2", CultureInfo.CurrentCulture)}
+- Volume disponível: {product.CurrentVolume}/{product.TotalVolume}
+- Data de validade: {product.ExpirationDate.ToString("dd/MM/yyyy")}
+------------------------------------------------------------
 ");
         }
 

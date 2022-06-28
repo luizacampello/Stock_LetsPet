@@ -5,7 +5,7 @@ namespace Stock.Domain
     public enum Category
     {
         Shampoo,
-        Conditioner,
+        Condicionador,
         Perfume,
     }
 }
