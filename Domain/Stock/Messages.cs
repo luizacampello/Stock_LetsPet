@@ -48,5 +48,10 @@ Ou pressione ENTER para o relatório com todos os produtos.";
 1 - Shampoo
 2 - Condicionador
 3 - Perfume";
-	}
+
+		public const string MenuMainMenu = @"Opções de produtos:
+1 - Cadastro de Produtos 
+2 - Relatório de Estoque 
+3 - Voltar ao menu anterior";
+	} 
 }
