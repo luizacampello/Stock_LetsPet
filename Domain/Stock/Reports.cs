@@ -107,7 +107,7 @@ Marca: {product.Brand}
 Preço: {product.Price}
 Volume total: {product.TotalVolume}
 Volume restante: {product.CurrentVolume}
-Data de validade: {product.ExpirationDate}
+Data de validade: {product.ExpirationDate.Date}
 ");
         }
     }
