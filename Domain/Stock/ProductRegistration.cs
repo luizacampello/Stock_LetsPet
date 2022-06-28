@@ -13,9 +13,10 @@ namespace Stock.Domain.Stock
         private int minAmount = 2;
         private int maxAmount = 20;
 
-        public static Product NewProductRegistry()
+        public static Product NewProductPropertiesRegistry()
         {
             Category newProductCategory = InputServices.SelectCategory();
+            int newProductQuantity = InputServices.NewQuantity();
             Usage newProductUsage = InputServices.SelectUsage();
             string newProductName = InputServices.NewName();
             string newProductBrand = InputServices.NewBrand();
@@ -33,6 +34,10 @@ namespace Stock.Domain.Stock
             petStock.AddToStock(newProduct);
         }
 
+        public int AllowedQuantityByCategory(Stock petStock, Category newProductCategory)
+        {
+            return maxAmount - petStock.ProductCategoryQuantity(newProductCategory);
+        } 
        
     }
 

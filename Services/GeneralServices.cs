@@ -73,21 +73,21 @@ namespace Stock.Services
 
         public static string NewName()
         {
-            Console.WriteLine(Messages.inputName);
+            Console.Write(Messages.inputName);
             var InptName = UserInput();
             return InptName;
         }
 
         public static string NewBrand()
         {
-            Console.WriteLine(Messages.inputBrand);
+            Console.Write(Messages.inputBrand);
             var InptBrand = UserInput();
             return InptBrand;
         }
 
         public static decimal NewPrice()
         {
-            Console.WriteLine(Messages.inputPrice);
+            Console.Write(Messages.inputPrice);
             var InPrice = UserInput();
             var correctPrice = decimal.TryParse(InPrice, out var InptPrice);
             if (correctPrice && InptPrice > 0)
@@ -103,7 +103,7 @@ namespace Stock.Services
 
         public static int NewTotalVolume()
         {
-            Console.WriteLine(Messages.inputTotalVolume);
+            Console.Write(Messages.inputTotalVolume);
             var InTotalVolume = UserInput();
             var correctTotalVolume = int.TryParse(InTotalVolume, out var InptTotalVolume);
             if (correctTotalVolume && InptTotalVolume > 0)
@@ -119,7 +119,7 @@ namespace Stock.Services
 
         public static DateTime NewExpirationDate()
         {
-            Console.WriteLine(Messages.inputExpirationDate);
+            Console.Write(Messages.inputExpirationDate);
             var InDate = UserInput();
             var correctDate = DateTime.TryParse(InDate, out var InptExpirationDate);
             if (correctDate && InptExpirationDate > DateTime.Now)
@@ -156,6 +156,30 @@ namespace Stock.Services
 
         }
 
+        public static int NewQuantity()
+        {
+            
+            Console.Write($"{Messages.inputQuantity} - 2");
+            var InQuantity = UserInput();
+            var correctQuantity = int.TryParse(InQuantity, out var InptQuantity);
+            if (correctQuantity)
+            {
+                if (InptQuantity >= 1 && InptQuantity <= 20)
+                {
+                    return InptQuantity;
+                }
+                else
+                {
+                    Console.WriteLine();
+                    return NewTotalVolume();
+                }
+            }
+            else
+            {
+                Console.WriteLine(Messages.formatError);
+                return NewTotalVolume();
+            }
+        }
 
     }
 

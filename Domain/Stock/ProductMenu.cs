@@ -14,11 +14,13 @@ namespace Stock.Domain.Stock
         public static void BeginProgram()
         {
             Stock petStock = new();
+            Reports petReport = new(petStock);
             MenuSelection(petStock);
         }
+
         private static void NewProductTest(Stock petStock)
         {
-            Product newProduct = ProductRegistration.NewProductRegistry();
+            Product newProduct = ProductRegistration.NewProductPropertiesRegistry();
             ProductRegistration.AddNewProductToStock(newProduct, petStock);
         }
 
