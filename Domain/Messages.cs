@@ -80,5 +80,8 @@ Ou pressione ENTER para o relatório com todos os produtos.";
 
         public const string productNotFound = "Não existem produtos cadastrados que correspondem as características solicitadas.";
 
+        public const string listOfProducts = $"Lista de produtos disponíveis do tipo ";
+
+        public const string noProductsAvailable = "Não existem produtos disponíveis do tipo ";
     }
 }
