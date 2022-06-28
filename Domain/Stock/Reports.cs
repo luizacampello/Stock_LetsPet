@@ -16,7 +16,7 @@ namespace Stock.Domain.Stock
             this.stock = stock;
         }
 
-        void StockContentReport()
+        public void StockContentReport()
         {
             if (stock.ProductCategoryQuantity(Category.Shampoo) != 0)
             {
@@ -48,7 +48,7 @@ namespace Stock.Domain.Stock
 
         void ProductCostByServiceReport()
         {
-            //Parte extra (não necessária no momento).
+            //Parte bônus (não necessária no momento).
         }
 
         public void SearchResultsByType(List<Product> products)
@@ -57,19 +57,37 @@ namespace Stock.Domain.Stock
                 PrintProduct(p);
         }
 
-        public void SearchResultsByName()
+        public void SearchResultsByName(string nameInput)
         {
-
+            bool found = false;
+            foreach (Product product in stock.GetFullStock())
+            {
+                if (product.Name == nameInput)
+                {
+                    PrintProduct(product);
+                    found = true;
+                }
+            }
+            if (!found)
+                Console.WriteLine(Messages.NoResults);
         }
-        public void SearchResultsByBrand()
+        public void SearchResultsByBrand(string brandInput)
         {
-
+            bool found = false;
+            foreach (Product product in stock.GetFullStock())
+            {
+                if (product.Brand == brandInput)
+                {
+                    PrintProduct(product);
+                    found = true;
+                }
+            }
+            if (!found)
+                Console.WriteLine(Messages.NoResults);
         }
 
-        void SearchByName()
         public void ShowFullStock()
         {
-            //List<Product> fullStock = stock.GetFullStock();
             foreach (Product product in stock.GetFullStock())
                 PrintProduct(product);
         }
@@ -77,34 +95,6 @@ namespace Stock.Domain.Stock
         public void Search(int caso)
         {
             List<Product> fullStock = stock.GetFullStock();
-            switch (caso)
-            {
-                case 0:
-                    foreach (Product product in fullStock)
-                        PrintProduct(product);
-                    break;
-                case 1:
-                    break;
-                case 2:
-                    break;
-                case 3:
-                    break;
-            }
-            bool found = false;
-            var stock = stock.GetFullStock();
-            foreach (Product product in Stock.GetFullStock())
-            {
-                if (contract.contractor == contractor)
-                {
-                    contract.ExibirInfo();
-                    found = true;
-                }
-            }
-
-            if (!found)
-            {
-                Console.WriteLine(Messages.contratanteNotInContractsList);
-            }
         }
 
         static void PrintProduct(Product product)

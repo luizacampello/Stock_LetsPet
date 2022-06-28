@@ -15,20 +15,32 @@ namespace Stock.Domain.Stock
             this.reports = reports;
         }*/
 
+        string input;
 
         void validaInput()
         {
-
+            input = "";
+            while (string.IsNullOrWhiteSpace(input))
+            {
+                input = Console.ReadLine();
+                if (string.IsNullOrWhiteSpace(input))
+                    Console.WriteLine(Messages.NullInput);
+            }
         }
 
-        string input;
 
-        void MenuMarca() 
+        void MenuMarca()
         {
+            Console.WriteLine(Messages.ReportBrandMenu);
+            validaInput();
+            reports.SearchResultsByBrand(input);
         }
 
         void MenuNome()
         {
+            Console.WriteLine(Messages.ReportNameMenu);
+            validaInput();
+            reports.SearchResultsByName(input);
         }
         void MenuTipo()
         {
@@ -45,8 +57,11 @@ namespace Stock.Domain.Stock
                 case "3":
                     reports.SearchResultsByType(stock.StoredPerfume);
                     break;
+                case "4":
+                    reports.StockContentReport();
+                    break;
                 default:
-                    Console.WriteLine("Opção inválida.");
+                    Console.WriteLine(Messages.InvalidOption);
                     MenuTipo();
                     break;
             }
@@ -56,7 +71,7 @@ namespace Stock.Domain.Stock
         {
             Console.WriteLine(Messages.ReportSelectionMenu);
             input = Console.ReadLine();
-            if (input == null)
+            if (string.IsNullOrWhiteSpace(input))
                 reports.ShowFullStock();
             else
                 switch (input)
@@ -71,7 +86,7 @@ namespace Stock.Domain.Stock
                         MenuMarca();
                         break;
                     default:
-                        Console.WriteLine("Opção inválida.");
+                        Console.WriteLine(Messages.InvalidOption);
                         MenuDeSelecao();
                         break;
                 }

@@ -47,6 +47,17 @@ Ou pressione ENTER para o relatório com todos os produtos.";
 		public const string ReportTypeMenu = @"Selecione sua alternativa:
 1 - Shampoo
 2 - Condicionador
-3 - Perfume";
+3 - Perfume
+4 - Todas as categorias";
+
+		public const string NoResults = "Sua busca não retornou resultados.";
+		
+		public const string ReportNameMenu = "Digite o nome do produto desejado:";
+
+		public const string ReportBrandMenu = "Digite a marca dos produtos desejados:";
+
+		public const string NullInput = "Input não pode ser vazio.";
+
+		public const string InvalidOption = "Opção inválida.";
 	}
 }
