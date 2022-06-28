@@ -33,29 +33,6 @@ namespace Stock.Domain.Common
             return UserInput();
         }
 
-        /*
-        public static string UserInputMainMenu()
-        {
-            List<string> options = new List<string>() { "1", "2", "3"};
-            string userInput = "1";
-            do
-            {
-                if (String.IsNullOrWhiteSpace(userInput))
-                {
-                    Console.WriteLine(Messages.invalidNullInput);
-                }
-                if (!options.Contains(userInput))
-                {
-                    Console.WriteLine(Messages.formatError);
-                }
-                Console.WriteLine(Messages.MenuMainMenu);
-                string userInput = Console.ReadLine();   
-            }
-            while ((!String.IsNullOrWhiteSpace(userInput)) || (!options.Contains(userInput)));
-            return userInput;
-        }
-        */
-
         public static Category SelectCategory()
         {
             Console.WriteLine(Messages.categorySelectionMenu);
@@ -95,6 +72,29 @@ namespace Stock.Domain.Common
             }
         }
 
+        public static Species SelectSpecies()
+        {
+            Console.WriteLine(Messages.speciesSelectionMenu);
+            var inputSpecie = UserInput();
+            switch (inputSpecie)
+            {
+                case "1":
+                    return Species.Cachorro;
+
+
+                case "2":
+                    return Species.Gato;
+
+
+                default:
+
+                    Console.WriteLine(Messages.formatError);
+                    return SelectSpecies();
+
+            }
+
+        }
+
         public static string NewName()
         {
             Console.Write(Messages.inputName);
@@ -107,6 +107,30 @@ namespace Stock.Domain.Common
             Console.Write(Messages.inputBrand);
             var InptBrand = UserInput();
             return InptBrand;
+        }
+
+        public static int NewQuantity(int allowedQuantity)
+        {
+            Console.Write($"{Messages.inputQuantity} (É possível adicionar até {allowedQuantity} produto(s)): ");
+            string userInput = UserInput();
+            bool validFormatQuantity = int.TryParse(userInput, out int inputQuantity);
+            if (validFormatQuantity)
+            {
+                if (inputQuantity >= 1 && inputQuantity <= allowedQuantity)
+                {
+                    return inputQuantity;
+                }
+                else
+                {
+                    Console.WriteLine(Messages.invalidQuantity);
+                    return NewQuantity(allowedQuantity);
+                }
+            }
+            else
+            {
+                Console.WriteLine(Messages.formatError);
+                return NewQuantity(allowedQuantity);
+            }
         }
 
         public static decimal NewPrice()
@@ -155,54 +179,7 @@ namespace Stock.Domain.Common
                 Console.WriteLine(Messages.formatError);
                 return NewExpirationDate();
             }
-        }
-
-        public static Species SelectSpecies()
-        {
-            Console.WriteLine(Messages.specieSelectionMenu);
-            var inputSpecie = UserInput();
-            switch (inputSpecie)
-            {
-                case "1":
-                    return Species.Cachorro;
-
-
-                case "2":
-                    return Species.Gato;
-
-
-                default:
-
-                    Console.WriteLine(Messages.formatError);
-                    return SelectSpecies();
-
-            }
-
-        }
-
-        public static int NewQuantity(int allowedQuantity)
-        {
-            Console.Write($"{Messages.inputQuantity} (É possível adicionar até {allowedQuantity} produto(s)): ");
-            string userInput = UserInput();
-            bool validFormatQuantity = int.TryParse(userInput, out int inputQuantity);
-            if (validFormatQuantity)
-            {
-                if (inputQuantity >= 1 && inputQuantity <= allowedQuantity)
-                {
-                    return inputQuantity;
-                }
-                else
-                {
-                    Console.WriteLine(Messages.invalidQuantity);
-                    return NewQuantity(allowedQuantity);
-                }
-            }
-            else
-            {
-                Console.WriteLine(Messages.formatError);
-                return NewQuantity(allowedQuantity);
-            }
-        }
+        }             
 
         public static bool ReturnSwitch()
         {

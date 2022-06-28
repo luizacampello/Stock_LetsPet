@@ -7,7 +7,6 @@ namespace Stock.Domain
 {
     public class Product
     {
-
         public Category Category { get; private set; }
         public Usage Usage { get; private set; }
         public string Name { get; private set; }
@@ -35,6 +34,11 @@ namespace Stock.Domain
             CurrentVolume = totalVolume;
             ExpirationDate = expirationDate;
             Species = species;
+        }
+
+        public void spendVolume(int toExpendVolume)
+        {
+            CurrentVolume -= toExpendVolume;
         }
     }
 
