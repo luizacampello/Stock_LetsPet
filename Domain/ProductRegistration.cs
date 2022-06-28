@@ -12,8 +12,14 @@ namespace Stock.Domain
     {
         private int minAmount = 2;
         private int maxAmount = 20;
+        private Stock storage;
 
-        public static Product NewProductPropertiesRegistry()
+        public ProductRegistration(Stock storage)
+        {
+            this.storage = storage;
+        }
+
+        public Product NewProductProperties()
         {
             Category newProductCategory = InputServices.SelectCategory();
             int newProductQuantity = InputServices.NewQuantity();
@@ -28,15 +34,21 @@ namespace Stock.Domain
                                              newProductTotalVolume, newProductExpirationDate, newProductSpecies);
             return newProduct;
         }
-
-        public static void AddNewProductToStock(Product newProduct, Stock petStock)
+        public void NewProductRegistry()
         {
-            petStock.AddToStock(newProduct);
+            Category newProductCategory = InputServices.SelectCategory();
+            int allowedQuantity = AllowedQuantityByCategory(newProductCategory);
+            int newProductQuantity = InputServices.NewQuantity();
         }
 
-        public int AllowedQuantityByCategory(Stock petStock, Category newProductCategory)
+        public void AddNewProductToStock(Product newProduct)
         {
-            return maxAmount - petStock.ProductCategoryQuantity(newProductCategory);
+            storage.AddToStock(newProduct);
+        }
+
+        private int AllowedQuantityByCategory(Category newProductCategory)
+        {
+            return maxAmount - storage.ProductCategoryQuantity(newProductCategory);
         }
 
     }

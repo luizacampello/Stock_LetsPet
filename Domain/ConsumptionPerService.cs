@@ -8,11 +8,10 @@ using Stock.Domain;
 
 namespace Stock.Domain
 {
-    public class ConsumptionPerService
+    public static class ConsumptionPerService
     {
-        static void consumptionRegistry(string[] args)
+        private static void consumptionRegistry()
         {
-
             var dictDog = new Dictionary<(Category category, Usage usage, BreedSize size), int>();
             dictDog.Add((Category.Shampoo, Usage.Geral, BreedSize.Grande), 200);
             dictDog.Add((Category.Shampoo, Usage.Geral, BreedSize.Pequeno), 100);

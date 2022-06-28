@@ -7,75 +7,85 @@ using Stock.Domain.Common;
 
 namespace Stock.Domain
 {
-    public static class ProductMenu
+    public class ProductMenu
     {
-        public static void BeginProgram()
+        private Stock storage;
+        private Reports reports;
+        private ProductRegistration registry;
+
+
+        public ProductMenu(Stock storage, Reports reports, ProductRegistration registry)
         {
-            Stock petStock = new();
-            MenuSelection(petStock);
+            this.storage = storage;
+            this.registry = registry;
+            this.reports = reports;
+        }
+        public void BeginProgram()
+        {
+            MenuSelection();
         }
 
-        private static void NewProductTest(Stock petStock)
+        private void NewProductTest()
         {
-            Product newProduct = ProductRegistration.NewProductPropertiesRegistry();
-            ProductRegistration.AddNewProductToStock(newProduct, petStock);
+            Product newProduct = registry.NewProductProperties();
+            registry.AddNewProductToStock(newProduct);
         }
 
-        private static void MenuSelection(Stock petStock)
+        private void MenuSelection()
         {
             Console.WriteLine(Messages.MenuProductTest);
             string userInput = InputServices.UserInput();
             switch (userInput)
             {
                 case "1":
-                    NewProductTest(petStock);
-                    ReturnProgram(petStock);
+                    NewProductTest();
+                    ReturnProgram();
                     return;
                 case "2":
-                    PrintStock(petStock);
-                    ReturnProgram(petStock);
+                    PrintStock();
+                    ReturnProgram();
                     return;
                 case "3":
-                    OpenProduct(petStock);
-                    ReturnProgram(petStock);
+                    OpenProduct();
+                    ReturnProgram();
                     return;
                 default:
                     Console.WriteLine(Messages.formatError);
-                    MenuSelection(petStock);
+                    MenuSelection();
                     return;
             }
         }
 
-        private static void OpenProduct(Stock petStock)
+        private void OpenProduct()
         {
             Category wantedProductType = InputServices.SelectCategory();
             Usage wantedProductUsage = InputServices.SelectUsage();
             Species wantedProductSpecies = InputServices.SelectSpecies();
-            Product removedProduct = Stock.RemoveFromStock(petStock, wantedProductType, wantedProductUsage, wantedProductSpecies);
-            Reports.PrintProduct(removedProduct);
+            Product removedProduct = storage.RemoveFromStock(wantedProductType, wantedProductUsage, wantedProductSpecies);
+            reports.PrintProduct(removedProduct);
         }
 
-        private static void PrintStock(Stock petStock)
+        private void PrintStock()
         {
-            List<Product> stockCollection = petStock.GetFullStock();
+            List<Product> stockCollection = storage.GetFullStock();
 
             foreach (Product item in stockCollection)
             {
-                Reports.PrintProduct(item);
+                reports.PrintProduct(item);
             }
         }
 
-        private static void ReturnProgram(Stock petStock)
+        private void ReturnProgram()
         {
             Console.WriteLine();
             Console.WriteLine();
             Console.Write(Messages.returnEntryKey);
             Console.ReadKey();
-            MenuSelection(petStock);
+            MenuSelection();
             return;
         }
 
-        public static Stock CreatedStock()
+        public Stock CreatedStock()
         {
             Product InicialShampoo = new Product(Category.Shampoo, Usage.Geral, "Pet Clean 5 em 1",
                 "Pet Clean", 14, 700, DateTime.Now.AddYears(1), Species.Cachorro);
@@ -91,14 +101,14 @@ namespace Stock.Domain
             return estoque;
         }
 
-        public static void DefaultMenuStock()
+        public void DefaultMenuStock()
         {
             Stock storage = CreatedStock();
             string inputType = InputServices.UserInput();
             switch (inputType)
             {
                 case "1":
-                    storage.AddToStock(ProductRegistration.NewProductPropertiesRegistry());
+                    storage.AddToStock(registry.NewProductProperties());
                     return;
                 case "2":
                     //relatorio.MenuDeSelecao();
@@ -113,70 +123,70 @@ namespace Stock.Domain
             }
         }
 
-        public static void ReportBrandMenu(string input, Stock storage)
+        public void ReportBrandMenu(string userInput)
         {
             Console.WriteLine(Messages.ReportBrandMenu);
             InputServices.UserInput();
-            Reports.SearchResultsByBrand(input, storage);
+            reports.SearchResultsByBrand(userInput);
         }
 
-        public static void ReportNameMenu(string input, Stock storage)
+        public void ReportNameMenu(string userInput)
         {
             Console.WriteLine(Messages.ReportNameMenu);
             InputServices.UserInput();
-            Reports.SearchResultsByName(input, storage);
+            reports.SearchResultsByName(userInput);
         }
 
-        public static void ReportTypeMenu(Stock storage)
+        public void ReportTypeMenu()
         {
             Console.WriteLine(Messages.ReportTypeMenu);
             string input = Console.ReadLine();
             switch (input)
             {
                 case "1":
-                    Reports.SearchResultsByType(storage.StoredShampoo);
+                    reports.SearchResultsByType(storage.StoredShampoo);
                     break;
                 case "2":
-                    Reports.SearchResultsByType(storage.StoredConditioner);
+                    reports.SearchResultsByType(storage.StoredConditioner);
                     break;
                 case "3":
-                    Reports.SearchResultsByType(storage.StoredPerfume);
+                    reports.SearchResultsByType(storage.StoredPerfume);
                     break;
                 case "4":
-                    Reports.StockContentReport(storage);
+                    reports.StockContentReport();
                     break;
                 default:
                     Console.WriteLine(Messages.InvalidOption);
-                    ReportTypeMenu(storage);
+                    ReportTypeMenu();
                     break;
             }
         }
 
-        public static void ReportMainMenu(Stock storage)
+        public void ReportMainMenu()
         {
             Console.WriteLine(Messages.ReportSelectionMenu);
             string input = Console.ReadLine();
             if (string.IsNullOrWhiteSpace(input))
-                Reports.ShowFullStock(storage);
+                reports.ShowFullStock();
             else
                 switch (input)
                 {
                     case "1":
-                        ReportNameMenu(input, storage);
+                        ReportNameMenu(input);
                         break;
                     case "2":
-                        ReportTypeMenu(storage);
+                        ReportTypeMenu();
                         break;
                     case "3":
-                        ReportBrandMenu(input, storage);
+                        ReportBrandMenu(input);
                         break;
                     default:
                         Console.WriteLine(Messages.InvalidOption);
-                        ReportMainMenu(storage);
+                        ReportMainMenu();
                         break;
                 }
         }
 
-
+       
     }
 }

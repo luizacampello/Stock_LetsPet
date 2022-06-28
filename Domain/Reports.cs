@@ -8,7 +8,12 @@ namespace Stock.Domain
 {
     public class Reports
     {
-        public static void StockContentReport(Stock storage)
+        private Stock storage;
+        public Reports(Stock storage)
+        {
+            this.storage = storage;
+        }
+        public void StockContentReport()
         {
             if (storage.ProductCategoryQuantity(Category.Shampoo) != 0)
             {
@@ -38,13 +43,13 @@ namespace Stock.Domain
                 Console.WriteLine("Não existem perfumes no estoque.");
         }
 
-        public static void SearchResultsByType(List<Product> products)
+        public void SearchResultsByType(List<Product> products)
         {
             foreach (Product p in products)
                 PrintProduct(p);
         }
 
-        public static void SearchResultsByName(string nameInput, Stock storage)
+        public void SearchResultsByName(string nameInput)
         {
             bool found = false;
             foreach (Product product in storage.GetFullStock())
@@ -59,7 +64,7 @@ namespace Stock.Domain
                 Console.WriteLine(Messages.NoResults);
         }
 
-        public static void SearchResultsByBrand(string brandInput, Stock storage)
+        public void SearchResultsByBrand(string brandInput)
         {
             bool found = false;
             foreach (Product product in storage.GetFullStock())
@@ -74,13 +79,13 @@ namespace Stock.Domain
                 Console.WriteLine(Messages.NoResults);
         }
 
-        public static void ShowFullStock(Stock storage)
+        public void ShowFullStock()
         {
             foreach (Product product in storage.GetFullStock())
                 PrintProduct(product);
         }
 
-        public static void PrintProduct(Product product)
+        public void PrintProduct(Product product)
         {
             Console.WriteLine(@$"Nome: {product.Name}
 Categoria: {product.Category}

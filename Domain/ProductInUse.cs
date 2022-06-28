@@ -6,23 +6,35 @@ using System.Threading.Tasks;
 
 namespace Stock.Domain
 {
-    public class ProductInUse
+    /* public class ProductInUse
     {
         public List<Product> OpenShampoo { get; private set; } = new();
         public List<Product> OpenConditioner { get; private set; } = new();
         public List<Product> OpenPerfume { get; private set; } = new();
 
-        /*int amountproduct = 0;
+        int amountproduct = 0;
         var service = new Tuple<string,string,string> ();
         
         public int getConsumptionPerService()
         {
-             return amountproduct;
+             return 10;
         }
 
         //// colocar no metodo UseProductType
 
-        public void ShampooUse()
+        public void SelectTypeToUse(Product product)
+        {
+            switch (product.Category)
+            {
+                case Category.Shampoo:
+
+                case Category.Conditioner:
+                case Category.Perfume:
+                default:
+                    return;
+            }
+        }
+        public void ShampooUse(Product product)
         {
             if (OpenShampoo.Contains (Shampoo))
             {
@@ -99,12 +111,39 @@ namespace Stock.Domain
             else
             {
                 Console.WriteLine("Abrir novo produto");
-               // metodo abrir novo perfume
+                // metodo abrir novo perfume
                 OpenPerfume.Add(perfume);
                 perfume.CurrentVolume = TotalVolume - amountproduct;
             }
-        }*/
+        }
+
+        public void Use(List<Product> productCollection)
+        {
+            if (productCollection.Contains(perfume))
+            {
+                if (perfume.CurrentVolume >= amountproduct)
+                {
+                    return Console.WriteLine("Produto aberto!E tem quantidade suficiente");
+                    perfume.CurrentVolume = CurrentVolume - amountproduct;
+                }
+                else (perfume.CurrentVolume < amountproduct)
+                {
+                    return Console.WriteLine("Produto aberto!Mas sem quantidade suficiente para banho");
+                    Console.WriteLine("Abrir novo produto");
+                    // metodo abrir novo perfume
+                    perfume.CurrentVolume = TotalVolume - amountproduct + perfume.CurrentVolume;
+                    OpenPerfume.Add(perfume);
+                }
+            }
+            else
+            {
+                Console.WriteLine("Abrir novo produto");
+                // metodo abrir novo perfume
+                OpenPerfume.Add(perfume);
+                perfume.CurrentVolume = TotalVolume - amountproduct;
+            }
+        }
 
 
-    }
+    }*/
 }

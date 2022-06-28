@@ -56,7 +56,7 @@ namespace Stock.Domain
             }
         }
 
-        public static Product RemoveFromStock(Stock petstock, Category productType, Usage wantedProductUsage, Species wantedProductSpecies)
+        public Product RemoveFromStock(Category productType, Usage wantedProductUsage, Species wantedProductSpecies)
         {
             int productIndex = -1;
             Product newProduct = new();
@@ -64,14 +64,14 @@ namespace Stock.Domain
             switch (productType)
             {
                 case Category.Shampoo:
-                    productIndex = SearchWantedProduct(petstock.StoredShampoo, wantedProductUsage, wantedProductSpecies);
-                    return petstock.StoredShampoo.Pop(productIndex);
+                    productIndex = SearchWantedProduct(StoredShampoo, wantedProductUsage, wantedProductSpecies);
+                    return StoredShampoo.Pop(productIndex);
                 case Category.Conditioner:
-                    productIndex = SearchWantedProduct(petstock.StoredConditioner, wantedProductUsage, wantedProductSpecies);
-                    return petstock.StoredConditioner.Pop(productIndex);
+                    productIndex = SearchWantedProduct(StoredConditioner, wantedProductUsage, wantedProductSpecies);
+                    return StoredConditioner.Pop(productIndex);
                 case Category.Perfume:
-                    productIndex = SearchWantedProduct(petstock.StoredPerfume, wantedProductUsage, wantedProductSpecies);
-                    return petstock.StoredPerfume.Pop(productIndex);
+                    productIndex = SearchWantedProduct(StoredPerfume, wantedProductUsage, wantedProductSpecies);
+                    return StoredPerfume.Pop(productIndex);
 
                 default:
                     break;
@@ -95,7 +95,6 @@ namespace Stock.Domain
 
             return productIndex;
         }
-
 
     }
 }

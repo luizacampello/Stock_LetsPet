@@ -11,7 +11,12 @@ namespace Stock.Domain
     {
         public static void Main()
         {
-            ProductMenu.BeginProgram();
+            Stock storage = new();
+            Reports reports = new (storage);
+            ProductRegistration registry = new ProductRegistration(storage);
+            ProductMenu productMenu = new ProductMenu(storage, reports, registry);
+
+            productMenu.BeginProgram();
         }
     }
 }
