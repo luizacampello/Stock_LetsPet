@@ -1,8 +1,9 @@
 ﻿using Stock.Domain.Common;
+using Stock.Domain;
 using System;
 using System.Collections.Generic;
 
-namespace Stock.Domain.Stock
+namespace Stock.Domain
 {
     public class Product
     {

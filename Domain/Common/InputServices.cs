@@ -1,13 +1,12 @@
-﻿using Stock.Domain.Stock;
-using Stock.Domain.Common;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Stock.Domain;
 
-namespace Stock.Services
+namespace Stock.Domain.Common
 {
     public static class InputServices
     {
@@ -25,14 +24,15 @@ namespace Stock.Services
         public static string UserInput()
         {
             string userInput = Console.ReadLine();
-            if (!String.IsNullOrWhiteSpace(userInput))
+            if (!string.IsNullOrWhiteSpace(userInput))
             {
                 return DefaultTextFormat(userInput);
             }
             Console.WriteLine(Messages.invalidNullInput);
             return UserInput();
         }
-        
+
+        /*
         public static string UserInputMainMenu()
         {
             List<string> options = new List<string>() { "1", "2", "3"};
@@ -53,7 +53,7 @@ namespace Stock.Services
             while ((!String.IsNullOrWhiteSpace(userInput)) || (!options.Contains(userInput)));
             return userInput;
         }
-
+        */
 
         public static Category SelectCategory()
         {
@@ -76,48 +76,6 @@ namespace Stock.Services
             }
         }
 
-        public static Stock.Domain.Stock.Stock CreatedStock()
-        { 
-            Product InicialShampoo = new Product(Category.Shampoo,Usage.General,"Pet Clean 5 em 1",
-                "Pet Clean", 14, 700,DateTime.Now.AddYears(1), Species.Cachorro);   
-            Product InicialConditioner = new Product(Category.Conditioner,Usage.Geral, "Sanol Dog revitalizante",
-                "Sanol", 17, 500,DateTime.Now.AddYears(1), Species.Cachorro);
-            Product InicialPerfume = new Product (Category.Perfume, Usage.General, "Colônia Me.Au Pet Cheirinho de Bebê",
-                "Me.Au Pet", 13, 120, DateTime.Now.AddYears(1), Species.Cachorro);
-            
-            Stock.Domain.Stock.Stock estoque = new Stock.Domain.Stock.Stock();
-            estoque.AddToStock(InicialShampoo);
-            estoque.AddToStock (InicialConditioner);
-            estoque.AddToStock(InicialPerfume);
-            return estoque;
-        }
-
-
-        public static void DefaultMenuStock()
-        {
-            Stock.Domain.Stock.Stock estoque = InputValidationAndFormat.CreatedStock();
-            Reports relatorio = new Reports(estoque);
-            ReportMenu relatorioMenu = new ReportMenu();
-            //relatorioMenu. // precisa criar um construtor que aceite as duas propriedades
-            string inputType = UserInput();
-            switch (inputType)
-            {
-                case "1":
-                    estoque.AddToStock(ProductRegistration.NewProductRegistry()); 
-                    return;
-                case "2":
-                    //relatorio.MenuDeSelecao();
-                    return;
-                case "3":
-                    //Main();
-                    return;
-                default:
-                    Console.WriteLine(Messages.formatError);
-                    DefaultMenuStock();
-                    return;
-            }
-        }
-
         public static Usage SelectUsage()
         {
             Console.WriteLine(Messages.UsageSelectionMenu);
@@ -125,10 +83,10 @@ namespace Stock.Services
             switch (inputUsage)
             {
                 case "1":
-                    return Usage.General;
+                    return Usage.Geral;
 
                 case "2":
-                    return Usage.Special;
+                    return Usage.Especial;
 
                 default:
                     Console.WriteLine(Messages.formatError);
@@ -198,18 +156,18 @@ namespace Stock.Services
             }
         }
 
-        public static Domain.Common.Species SelectSpecies()
+        public static Species SelectSpecies()
         {
             Console.WriteLine(Messages.SpecieSelectionMenu);
             var inputSpecie = UserInput();
             switch (inputSpecie)
             {
                 case "1":
-                    return Domain.Common.Species.Cachorro;
+                    return Species.Cachorro;
 
 
                 case "2":
-                    return Domain.Common.Species.Gato;
+                    return Species.Gato;
 
 
                 default:
@@ -223,7 +181,7 @@ namespace Stock.Services
 
         public static int NewQuantity()
         {
-            
+
             Console.Write($"{Messages.inputQuantity} - 2");
             var InQuantity = UserInput();
             var correctQuantity = int.TryParse(InQuantity, out var InptQuantity);

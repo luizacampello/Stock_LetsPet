@@ -4,11 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Stock.Domain.Stock
+namespace Stock.Domain
 {
     public enum Usage
     {
-        Special,
-        General,
+        Especial,
+        Geral,
     }
 }

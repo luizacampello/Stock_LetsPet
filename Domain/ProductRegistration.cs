@@ -1,12 +1,12 @@
 ﻿using Stock.Domain.Common;
-using Stock.Services;
+using Stock.Domain;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Stock.Domain.Stock
+namespace Stock.Domain
 {
     public class ProductRegistration
     {
@@ -24,7 +24,7 @@ namespace Stock.Domain.Stock
             int newProductTotalVolume = InputServices.NewTotalVolume();
             DateTime newProductExpirationDate = InputServices.NewExpirationDate();
             Species newProductSpecies = InputServices.SelectSpecies();
-            Product newProduct = new Product(newProductCategory, newProductUsage, newProductName, newProductBrand, newProductPrice, 
+            Product newProduct = new Product(newProductCategory, newProductUsage, newProductName, newProductBrand, newProductPrice,
                                              newProductTotalVolume, newProductExpirationDate, newProductSpecies);
             return newProduct;
         }
@@ -37,8 +37,8 @@ namespace Stock.Domain.Stock
         public int AllowedQuantityByCategory(Stock petStock, Category newProductCategory)
         {
             return maxAmount - petStock.ProductCategoryQuantity(newProductCategory);
-        } 
-       
+        }
+
     }
 
 }

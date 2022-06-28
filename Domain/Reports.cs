@@ -1,66 +1,53 @@
-﻿using Stock.Domain.Stock;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Stock.Domain.Stock
+namespace Stock.Domain
 {
     public class Reports
     {
-        private Stock stock;
-
-        public Reports(Stock stock)
+        public static void StockContentReport(Stock storage)
         {
-            this.stock = stock;
-        }
-
-        public void StockContentReport()
-        {
-            if (stock.ProductCategoryQuantity(Category.Shampoo) != 0)
+            if (storage.ProductCategoryQuantity(Category.Shampoo) != 0)
             {
                 Console.WriteLine("Lista de shampoos disponíveis:");
-                foreach (Product shampoo in stock.StoredShampoo)
+                foreach (Product shampoo in storage.StoredShampoo)
                     PrintProduct(shampoo);
             }
             else
                 Console.WriteLine("Não existem shampoos no estoque.");
 
-            if (stock.StoredConditioner.Count != 0)
+            if (storage.StoredConditioner.Count != 0)
             {
                 Console.WriteLine("Lista de condicionadores disponíveis:");
-                foreach (Product conditioner in stock.StoredConditioner)
+                foreach (Product conditioner in storage.StoredConditioner)
                     PrintProduct(conditioner);
             }
             else
                 Console.WriteLine("Não existem condicionadores no estoque.");
 
-            if (stock.StoredPerfume.Count != 0)
+            if (storage.StoredPerfume.Count != 0)
             {
                 Console.WriteLine("Lista de perfumes disponíveis:");
-                foreach (Product perfume in stock.StoredPerfume)
+                foreach (Product perfume in storage.StoredPerfume)
                     PrintProduct(perfume);
             }
             else
                 Console.WriteLine("Não existem perfumes no estoque.");
         }
 
-        void ProductCostByServiceReport()
-        {
-            //Parte bônus (não necessária no momento).
-        }
-
-        public void SearchResultsByType(List<Product> products)
+        public static void SearchResultsByType(List<Product> products)
         {
             foreach (Product p in products)
                 PrintProduct(p);
         }
 
-        public void SearchResultsByName(string nameInput)
+        public static void SearchResultsByName(string nameInput, Stock storage)
         {
             bool found = false;
-            foreach (Product product in stock.GetFullStock())
+            foreach (Product product in storage.GetFullStock())
             {
                 if (product.Name == nameInput)
                 {
@@ -71,10 +58,11 @@ namespace Stock.Domain.Stock
             if (!found)
                 Console.WriteLine(Messages.NoResults);
         }
-        public void SearchResultsByBrand(string brandInput)
+
+        public static void SearchResultsByBrand(string brandInput, Stock storage)
         {
             bool found = false;
-            foreach (Product product in stock.GetFullStock())
+            foreach (Product product in storage.GetFullStock())
             {
                 if (product.Brand == brandInput)
                 {
@@ -86,17 +74,11 @@ namespace Stock.Domain.Stock
                 Console.WriteLine(Messages.NoResults);
         }
 
-        public void ShowFullStock()
+        public static void ShowFullStock(Stock storage)
         {
-            foreach (Product product in stock.GetFullStock())
+            foreach (Product product in storage.GetFullStock())
                 PrintProduct(product);
         }
-
-        /*public void Search(int caso)
-        {
-            List<Product> fullStock = stock.GetFullStock();
-        }
-        */
 
         public static void PrintProduct(Product product)
         {
@@ -111,6 +93,6 @@ Volume restante: {product.CurrentVolume}
 Data de validade: {product.ExpirationDate.Date}
 ");
         }
-        
+
     }
 }

@@ -5,11 +5,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Stock.Domain.Stock
+namespace Stock.Domain
 {
     public class Stock
     {
-        public List<Product> StoredShampoo { get; private set; } = new(); 
+        public List<Product> StoredShampoo { get; private set; } = new();
         public List<Product> StoredConditioner { get; private set; } = new();
         public List<Product> StoredPerfume { get; private set; } = new();
 
@@ -65,7 +65,7 @@ namespace Stock.Domain.Stock
             {
                 case Category.Shampoo:
                     productIndex = SearchWantedProduct(petstock.StoredShampoo, wantedProductUsage, wantedProductSpecies);
-                    return petstock.StoredShampoo.Pop(productIndex);                    
+                    return petstock.StoredShampoo.Pop(productIndex);
                 case Category.Conditioner:
                     productIndex = SearchWantedProduct(petstock.StoredConditioner, wantedProductUsage, wantedProductSpecies);
                     return petstock.StoredConditioner.Pop(productIndex);
@@ -78,7 +78,7 @@ namespace Stock.Domain.Stock
             }
             return newProduct;
         }
-        
+
         private static int SearchWantedProduct(List<Product> CategoryStock, Usage wantedProductUsage, Species wantedProductSpecies)
         {
             int productIndex = -1;

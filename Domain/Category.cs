@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Stock.Domain.Stock
+namespace Stock.Domain
 {
     public enum Category
     {

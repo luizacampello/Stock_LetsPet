@@ -4,13 +4,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Stock.Domain.Stock
+namespace Stock.Domain
 {
     public class ProductInUse
     {
-        public List<Product> OpenShampoo { get; private set;  } = new();
+        public List<Product> OpenShampoo { get; private set; } = new();
         public List<Product> OpenConditioner { get; private set; } = new();
-        public List<Product> OpenPerfume { get; private set;  } = new();
+        public List<Product> OpenPerfume { get; private set; } = new();
 
         /*int amountproduct = 0;
         var service = new Tuple<string,string,string> ();
@@ -103,7 +103,7 @@ namespace Stock.Domain.Stock
                 OpenPerfume.Add(perfume);
                 perfume.CurrentVolume = TotalVolume - amountproduct;
             }
-        }*/    
+        }*/
 
 
     }
