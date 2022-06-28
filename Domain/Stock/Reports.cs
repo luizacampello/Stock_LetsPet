@@ -92,12 +92,13 @@ namespace Stock.Domain.Stock
                 PrintProduct(product);
         }
 
-        public void Search(int caso)
+        /*public void Search(int caso)
         {
             List<Product> fullStock = stock.GetFullStock();
         }
+        */
 
-        static void PrintProduct(Product product)
+        public static void PrintProduct(Product product)
         {
             Console.WriteLine(@$"Nome: {product.Name}
 Categoria: {product.Category}
@@ -110,5 +111,6 @@ Volume restante: {product.CurrentVolume}
 Data de validade: {product.ExpirationDate}
 ");
         }
+        
     }
 }

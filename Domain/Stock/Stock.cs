@@ -56,7 +56,7 @@ namespace Stock.Domain.Stock
             }
         }
 
-        public Product RemoveFromStock(Category productType, Usage wantedProductUsage, Species wantedProductSpecies)
+        public static Product RemoveFromStock(Category productType, Usage wantedProductUsage, Species wantedProductSpecies)
         {
             int productIndex = -1;
             Product newProduct = new();

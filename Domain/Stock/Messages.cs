@@ -59,5 +59,11 @@ Ou pressione ENTER para o relatório com todos os produtos.";
 		public const string NullInput = "Input não pode ser vazio.";
 
 		public const string InvalidOption = "Opção inválida.";
+		public const string MenuProductTest = @"
+1 - Novo Produto
+2 - Ver estoque 
+3 - Retirar Produto ";
+
+		public const string returnEntryKey = "Digite qualquer tecla para retornar ao menu inicial ";
 	}
 }

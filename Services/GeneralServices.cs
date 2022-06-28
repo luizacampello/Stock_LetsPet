@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Stock.Services
 {
-    public static class InputValidationAndFormat
+    public static class InputServices
     {
         private static string DefaultTextFormat(string userInput)
         {
