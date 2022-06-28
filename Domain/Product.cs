@@ -36,7 +36,7 @@ namespace Stock.Domain
             Species = species;
         }
 
-        public void spendVolume(int toExpendVolume)
+        public void spendProduct(int toExpendVolume)
         {
             CurrentVolume -= toExpendVolume;
         }
