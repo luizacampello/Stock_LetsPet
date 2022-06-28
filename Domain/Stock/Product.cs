@@ -17,6 +17,10 @@ namespace Stock.Domain.Stock
         public DateTime ExpirationDate { get; private set; }
         public Species Species { get; private set; }
 
+        public Product()
+        {
+
+        }
         public Product(Category category, Usage usage, string name, string brand, decimal price, int totalVolume, DateTime expirationDate, Species species)
         {
             Category = category;

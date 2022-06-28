@@ -58,35 +58,28 @@ namespace Stock.Domain.Stock
 
         public Product RemoveFromStock(Category productType, Usage wantedProductUsage, Species wantedProductSpecies)
         {
-            int productIndex = -1 ;
-            Product ProductToOpen = new();
+            int productIndex = -1;
+            Product newProduct = new();
 
             switch (productType)
             {
                 case Category.Shampoo:
-                    productIndex = ProductSearchSelection(StoredShampoo, wantedProductUsage, wantedProductSpecies);
-                    ProductToOpen = StoredShampoo[productIndex];
-                    StoredShampoo.RemoveAt(productIndex);
-                    return ProductToOpen;
+                    productIndex = SearchWantedProduct(StoredShampoo, wantedProductUsage, wantedProductSpecies);
+                    return StoredShampoo.Pop(productIndex);                    
                 case Category.Conditioner:
-                    productIndex = ProductSearchSelection(StoredConditioner, wantedProductUsage, wantedProductSpecies);
-                    ProductToOpen = StoredShampoo[productIndex];
-                    StoredShampoo.RemoveAt(productIndex);
-                    return ProductToOpen;
+                    productIndex = SearchWantedProduct(StoredConditioner, wantedProductUsage, wantedProductSpecies);
+                    return StoredConditioner.Pop(productIndex);
                 case Category.Perfume:
-                    productIndex = ProductSearchSelection(StoredPerfume, wantedProductUsage, wantedProductSpecies);
-                    ProductToOpen = StoredShampoo[productIndex];
-                    StoredShampoo.RemoveAt(productIndex);
-                    return ProductToOpen;
+                    productIndex = SearchWantedProduct(StoredPerfume, wantedProductUsage, wantedProductSpecies);
+                    return StoredPerfume.Pop(productIndex);
 
                 default:
                     break;
             }
-
-            return ProductToOpen;
+            return newProduct;
         }
         
-        int ProductSearchSelection(List<Product> CategoryStock, Usage wantedProductUsage, Species wantedProductSpecies)
+        private int SearchWantedProduct(List<Product> CategoryStock, Usage wantedProductUsage, Species wantedProductSpecies)
         {
             int productIndex = -1;
 

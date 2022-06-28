@@ -97,7 +97,7 @@ namespace Stock.Services
             else
             {
                 Console.WriteLine(Messages.formatError);
-                return InputPrice();
+                return NewPrice();
             }
         }
 
@@ -113,7 +113,7 @@ namespace Stock.Services
             else
             {
                 Console.WriteLine(Messages.formatError);
-                return InputTotalVolume();
+                return NewTotalVolume();
             }
         }
 
@@ -129,7 +129,7 @@ namespace Stock.Services
             else
             {
                 Console.WriteLine(Messages.formatError);
-                return InputExpirationDate();
+                return NewExpirationDate();
             }
         }
 
@@ -150,7 +150,7 @@ namespace Stock.Services
                 default:
 
                     Console.WriteLine(Messages.formatError);
-                    return SelectSpecie();
+                    return SelectSpecies();
 
             }
 
