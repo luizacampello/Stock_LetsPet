@@ -11,7 +11,7 @@ namespace Stock
 	{
 		public static void Main()
 		{
-            Console.WriteLine(Messages.CategorySelectionMenu);
+			ProductMenu.BeginProgram();
 		}
 	}
 }
