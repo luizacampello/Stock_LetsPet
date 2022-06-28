@@ -21,7 +21,9 @@ namespace Stock.Domain.Stock
         {
 
         }
-        public Product(Category category, Usage usage, string name, string brand, decimal price, int totalVolume, DateTime expirationDate, Species species)
+
+        public Product(Category category, Usage usage, string name, string brand, decimal price,
+            int totalVolume, DateTime expirationDate, Species species)
         {
             Category = category;
             Usage = usage;

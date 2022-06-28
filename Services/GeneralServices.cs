@@ -1,4 +1,5 @@
 ﻿using Stock.Domain.Stock;
+using Stock.Domain.Common;
 using System;
 using System.Collections.Generic;
 using System.Globalization;
@@ -31,6 +32,28 @@ namespace Stock.Services
             Console.WriteLine(Messages.invalidNullInput);
             return UserInput();
         }
+        
+        public static string UserInputMainMenu()
+        {
+            List<string> options = new List<string>() { "1", "2", "3"};
+            string userInput = "1";
+            do
+            {
+                if (String.IsNullOrWhiteSpace(userInput))
+                {
+                    Console.WriteLine(Messages.invalidNullInput);
+                }
+                if (!options.Contains(userInput))
+                {
+                    Console.WriteLine(Messages.formatError);
+                }
+                Console.WriteLine(Messages.MenuMainMenu);
+                string userInput = Console.ReadLine();   
+            }
+            while ((!String.IsNullOrWhiteSpace(userInput)) || (!options.Contains(userInput)));
+            return userInput;
+        }
+
 
         public static Category SelectCategory()
         {
@@ -50,6 +73,48 @@ namespace Stock.Services
                 default:
                     Console.WriteLine(Messages.formatError);
                     return SelectCategory();
+            }
+        }
+
+        public static Stock.Domain.Stock.Stock CreatedStock()
+        { 
+            Product InicialShampoo = new Product(Category.Shampoo,Usage.General,"Pet Clean 5 em 1",
+                "Pet Clean", 14, 700,DateTime.Now.AddYears(1), Species.Cachorro);   
+            Product InicialConditioner = new Product(Category.Conditioner,Usage.Geral, "Sanol Dog revitalizante",
+                "Sanol", 17, 500,DateTime.Now.AddYears(1), Species.Cachorro);
+            Product InicialPerfume = new Product (Category.Perfume, Usage.General, "Colônia Me.Au Pet Cheirinho de Bebê",
+                "Me.Au Pet", 13, 120, DateTime.Now.AddYears(1), Species.Cachorro);
+            
+            Stock.Domain.Stock.Stock estoque = new Stock.Domain.Stock.Stock();
+            estoque.AddToStock(InicialShampoo);
+            estoque.AddToStock (InicialConditioner);
+            estoque.AddToStock(InicialPerfume);
+            return estoque;
+        }
+
+
+        public static void DefaultMenuStock()
+        {
+            Stock.Domain.Stock.Stock estoque = InputValidationAndFormat.CreatedStock();
+            Reports relatorio = new Reports(estoque);
+            ReportMenu relatorioMenu = new ReportMenu();
+            //relatorioMenu. // precisa criar um construtor que aceite as duas propriedades
+            string inputType = UserInput();
+            switch (inputType)
+            {
+                case "1":
+                    estoque.AddToStock(ProductRegistration.NewProductRegistry()); 
+                    return;
+                case "2":
+                    //relatorio.MenuDeSelecao();
+                    return;
+                case "3":
+                    //Main();
+                    return;
+                default:
+                    Console.WriteLine(Messages.formatError);
+                    DefaultMenuStock();
+                    return;
             }
         }
 

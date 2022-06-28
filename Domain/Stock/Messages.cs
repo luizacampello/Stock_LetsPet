@@ -74,4 +74,8 @@ Ou pressione ENTER para o relatório com todos os produtos.";
 
 		public const string inputQuantity = "Quantos produtos serão cadastrados?";
 	}
+		public const string MenuMainMenu = @"Opções de produtos:
+1 - Cadastro de Produtos 
+2 - Relatório de Estoque 
+3 - Voltar ao menu anterior";
 }
