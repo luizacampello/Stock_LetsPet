@@ -94,8 +94,9 @@ namespace Stock.Domain
             return productIndex;
         }
 
-        public void ValidateProductRemoval(Category wantedProductCategory, Usage wantedProductUsage, Species wantedProductSpecies)
+        public Product ValidateProductRemoval(Category wantedProductCategory, Usage wantedProductUsage, Species wantedProductSpecies)
         {
+            Product productToOpen = new();
             int productIndex = -1;
             switch (wantedProductCategory)
             {
@@ -118,10 +119,10 @@ namespace Stock.Domain
             if (productIndex == -1)
             {
                 Console.WriteLine(Messages.productNotFound);
-                return;
+                return productToOpen;
             }
-            ProductRemovalFromStock(productIndex, wantedProductCategory);
-            return;
+            productToOpen = ProductRemovalFromStock(productIndex, wantedProductCategory);
+            return productToOpen;
         }
 
     }
