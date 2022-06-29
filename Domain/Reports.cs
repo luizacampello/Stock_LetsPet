@@ -55,14 +55,14 @@ namespace Stock.Domain
             bool found = false;
             foreach (Product product in storage.GetFullStock())
             {
-                if (product.Name == nameInput)
+                if (product.Name.ToLower() == nameInput.ToLower())
                 {
                     PrintProduct(product);
                     found = true;
                 }
             }
             if (!found)
-                Console.WriteLine(Messages.noResults);
+                Console.WriteLine(Messages.productNotFound);
         }
 
         public void SearchResultsByBrand(string brandInput)
@@ -70,14 +70,14 @@ namespace Stock.Domain
             bool found = false;
             foreach (Product product in storage.GetFullStock())
             {
-                if (product.Brand == brandInput)
+                if (product.Brand.ToLower() == brandInput.ToLower())
                 {
                     PrintProduct(product);
                     found = true;
                 }
             }
             if (!found)
-                Console.WriteLine(Messages.noResults);
+                Console.WriteLine(Messages.productNotFound);
         }
 
         public void ShowFullStock()

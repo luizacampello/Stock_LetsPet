@@ -39,7 +39,8 @@ Ou pressione ENTER para o relatório com todos os produtos.";
 
         public const string menuProductTest = @"1 - Novo Produto
 2 - Ver estoque 
-3 - Retirar Produto";
+3 - Retirar Produto
+4 - Relatório de Estoque";
 
         public const string defaultStockMenu = @"Opções de produtos:
 1 - Cadastro de Produtos 
@@ -62,26 +63,32 @@ Ou pressione ENTER para o relatório com todos os produtos.";
 
         public const string formatError = @"Entrada inválida, tente novamente!";        
 
-        public const string noResults = "Sua busca não retornou resultados.";
-
         public const string reportNameMenu = "Digite o nome do produto desejado: ";
 
-        public const string reportBrandMenu = "Digite a marca dos produtos desejados: ";
+        public const string reportBrandMenu = "Digite a marca do produto desejado: ";
 
         public const string invalidQuantity = "Quantidade inválida, tente novamente!";
 
         public const string returnEntryKey = "Digite qualquer tecla para retornar ao menu inicial ";
 
         public const string maxedOutQuantity = "Não é possível cadastrar mais produtos desse tipo, gostaria de tentar cadastrar um produto de outra categoria? (Sim/Não)";
-
-        public const string invalidOption = "Opção inválida.";                     
-
+                     
         public const string productNotFound = "Não existem produtos cadastrados que correspondem às características solicitadas.";
 
         public const string sucessfullNewProductRegistry = "Produto cadastrado com sucesso!";
 
-        public const string listOfProducts = $"Lista de produtos disponíveis do tipo ";
+        public const string listOfProducts = @"Lista de produtos disponíveis do tipo 
+";
 
-        public const string noProductsAvailable = "Não existem produtos disponíveis do tipo ";
+        public const string noProductsAvailable = @"Não existem produtos disponíveis do tipo 
+";
+        public const string headerNewProductRegistry = @"-------------------- Cadastro de Produto --------------------
+";
+
+        public const string headerNewReport = @"-------------------- Relatórios --------------------
+";
+
+        public const string headerStock = @"-------------------- Estoque Let's Pet --------------------
+";
     }
 }
