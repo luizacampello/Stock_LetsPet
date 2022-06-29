@@ -12,13 +12,14 @@ namespace Stock.Domain
         private Stock storage;
         private Reports reports;
         private ProductRegistration registry;
+        private ProductInUse productInUse;
 
-
-        public ProductMenu(Stock storage, Reports reports, ProductRegistration registry)
+        public ProductMenu(Stock storage, Reports reports, ProductRegistration registry, ProductInUse productInUse)
         {
             this.storage = storage;
             this.registry = registry;
             this.reports = reports;
+            this.productInUse = productInUse;
         }
         public void BeginProgram()
         {

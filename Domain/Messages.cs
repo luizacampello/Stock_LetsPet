@@ -44,9 +44,7 @@ Ou pressione ENTER para o relatório com todos os produtos.";
         public const string defaultStockMenu = @"Opções de produtos:
 1 - Cadastro de Produtos 
 2 - Relatório de Estoque 
-3 - Voltar ao menu anterior";
-
-        
+3 - Voltar ao menu anterior";             
 
         public const string inputName = "Qual o nome do produto? ";
 

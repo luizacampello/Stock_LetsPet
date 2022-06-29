@@ -19,7 +19,6 @@ namespace Stock.Domain
 
         public Product()
         {
-
         }
 
         public Product(Category category, Usage usage, string name, string brand, decimal price,

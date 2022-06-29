@@ -14,7 +14,8 @@ namespace Stock.Domain
             Stock storage = new();
             Reports reports = new(storage);
             ProductRegistration registry = new ProductRegistration(storage);
-            ProductMenu productMenu = new ProductMenu(storage, reports, registry);
+            ProductInUse productInUse = new();
+            ProductMenu productMenu = new ProductMenu(storage, reports, registry, productInUse);
 
             productMenu.BeginProgram();
         }
