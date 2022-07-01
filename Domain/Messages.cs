@@ -40,7 +40,8 @@ Ou pressione ENTER para o relatório com todos os produtos.";
         public const string menuProductTest = @"1 - Novo Produto
 2 - Ver estoque 
 3 - Retirar Produto
-4 - Relatório de Estoque";
+4 - Relatório de Estoque"
+;
 
         public const string defaultStockMenu = @"Opções de produtos:
 1 - Cadastro de Produtos 
@@ -89,6 +90,25 @@ Ou pressione ENTER para o relatório com todos os produtos.";
 ";
 
         public const string headerStock = @"-------------------- Estoque Let's Pet --------------------
+";
+
+        public const string productStock = @"Produto aberto!E tem quantidade suficiente
+";
+
+        public const string productNotEnoughStock = @"Produto aberto!Mas sem quantidade suficiente para banho
+";
+
+        public const string productOpenStock = @"Foi aberto um novo produto
+";
+
+        public const string serviceNotRegistered = @"Serviço não cadastrado no sistema
+";
+
+        public const string animalNotRegistered = @"Animal não cadastrado no sistema
+";
+
+
+        public const string lackOfProduct = @"Não tem produto disponível pra esse serviço! É necessário comprar mais!
 ";
     }
 }

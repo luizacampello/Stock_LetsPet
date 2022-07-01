@@ -94,7 +94,7 @@ Marca: {product.Brand}
 - Espécie: {product.Species}
 - Uso: {product.Usage}
 - Preço: {product.Price.ToString("C2", CultureInfo.CurrentCulture)}
-- Volume disponível: {product.CurrentVolume}/{product.TotalVolume}
+- Volume disponível / Volume total: {product.CurrentVolume}/{product.TotalVolume}
 - Data de validade: {product.ExpirationDate.ToString("dd/MM/yyyy")}
 ------------------------------------------------------------
 ");

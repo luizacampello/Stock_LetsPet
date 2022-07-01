@@ -56,7 +56,7 @@ namespace Stock.Domain
             }
         }
 
-        private Product ProductRemovalFromStock(int productIndex, Category productType)
+        public Product ProductRemovalFromStock(int productIndex, Category productType)
         {
             Product newProduct = new();
 
@@ -77,7 +77,7 @@ namespace Stock.Domain
             return newProduct;
         }
 
-        private int SearchWantedProduct(List<Product> CategoryStock, Usage wantedProductUsage, Species wantedProductSpecies)
+        public int SearchWantedProduct(List<Product> CategoryStock, Usage wantedProductUsage, Species wantedProductSpecies)
         {
             int productIndex = -1;
 
