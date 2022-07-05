@@ -25,7 +25,7 @@ namespace Stock.Domain
             {
                 case Category.Shampoo:
                     return StoredShampoo.Count;
-                case Category.Condicionador:
+                case Category.Conditioner:
                     return StoredCondicionador.Count;
                 case Category.Perfume:
                     return StoredPerfume.Count;
@@ -43,7 +43,7 @@ namespace Stock.Domain
                     StoredShampoo.Add(newProduct);
                     StoredShampoo.Sort((x, y) => x.ExpirationDate.CompareTo(y.ExpirationDate));
                     return;
-                case Category.Condicionador:
+                case Category.Conditioner:
                     StoredCondicionador.Add(newProduct);
                     StoredCondicionador.Sort((x, y) => x.ExpirationDate.CompareTo(y.ExpirationDate));
                     return;
@@ -65,7 +65,7 @@ namespace Stock.Domain
                 case Category.Shampoo:                    
                     return StoredShampoo.Pop(productIndex);
 
-                case Category.Condicionador:                    
+                case Category.Conditioner:                    
                     return StoredCondicionador.Pop(productIndex);
 
                 case Category.Perfume:                   
@@ -104,7 +104,7 @@ namespace Stock.Domain
                     productIndex = SearchWantedProduct(StoredShampoo, wantedProductUsage, wantedProductSpecies);
                     break;
 
-                case Category.Condicionador:
+                case Category.Conditioner:
                     productIndex = SearchWantedProduct(StoredCondicionador, wantedProductUsage, wantedProductSpecies);
                     break;
 

@@ -13,20 +13,20 @@ namespace Stock.Domain
         private static void consumptionRegistry()
         {
             var dictDog = new Dictionary<(Category category, Usage usage, BreedSize size), int>();
-            dictDog.Add((Category.Shampoo, Usage.Geral, BreedSize.Grande), 200);
-            dictDog.Add((Category.Shampoo, Usage.Geral, BreedSize.Pequeno), 100);
-            dictDog.Add((Category.Shampoo, Usage.Especial, BreedSize.Grande), 150);
-            dictDog.Add((Category.Shampoo, Usage.Especial, BreedSize.Pequeno), 75);
-            dictDog.Add((Category.Condicionador, Usage.Geral, BreedSize.Grande), 50);
-            dictDog.Add((Category.Condicionador, Usage.Geral, BreedSize.Pequeno), 25);
-            dictDog.Add((Category.Condicionador, Usage.Especial, BreedSize.Grande), 20);
-            dictDog.Add((Category.Condicionador, Usage.Especial, BreedSize.Pequeno), 10);
+            dictDog.Add((Category.Shampoo, Usage.General, BreedSize.Big), 200);
+            dictDog.Add((Category.Shampoo, Usage.General, BreedSize.Small), 100);
+            dictDog.Add((Category.Shampoo, Usage.Special, BreedSize.Big), 150);
+            dictDog.Add((Category.Shampoo, Usage.Special, BreedSize.Small), 75);
+            dictDog.Add((Category.Conditioner, Usage.General, BreedSize.Big), 50);
+            dictDog.Add((Category.Conditioner, Usage.General, BreedSize.Small), 25);
+            dictDog.Add((Category.Conditioner, Usage.Special, BreedSize.Big), 20);
+            dictDog.Add((Category.Conditioner, Usage.Special, BreedSize.Small), 10);
 
             var dictCat = new Dictionary<(Category category, Usage usage), int>();
-            dictCat.Add((Category.Shampoo, Usage.Geral), 50);
-            dictCat.Add((Category.Shampoo, Usage.Especial), 20);
-            dictCat.Add((Category.Condicionador, Usage.Geral), 15);
-            dictCat.Add((Category.Condicionador, Usage.Especial), 10);
+            dictCat.Add((Category.Shampoo, Usage.General), 50);
+            dictCat.Add((Category.Shampoo, Usage.Special), 20);
+            dictCat.Add((Category.Conditioner, Usage.General), 15);
+            dictCat.Add((Category.Conditioner, Usage.Special), 10);
 
         }
     }

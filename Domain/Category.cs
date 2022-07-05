@@ -1,11 +1,15 @@
 ﻿using System;
+using System.ComponentModel;
 
 namespace Stock.Domain
 {
     public enum Category
     {
+        [Description("Shampoo")]
         Shampoo,
-        Condicionador,
+        [Description("Condicionador")]
+        Conditioner,
+        [Description("Perfume")]
         Perfume,
     }
 }
