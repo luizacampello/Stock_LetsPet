@@ -38,7 +38,7 @@ namespace Stock.Domain
 
         private int AllowedQuantityByCategory(Category newProductCategory)
         {
-            return maxAmount - storage.ProductCategoryQuantity(newProductCategory);
+            return maxAmount - storage.CountProductByCategory(newProductCategory);
         }
 
         private void NewProductRegistry(Category newProductCategory, int quantity)

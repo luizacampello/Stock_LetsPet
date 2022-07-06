@@ -19,7 +19,7 @@ namespace Stock.Domain
             return fullStock;
         }
 
-        public int ProductCategoryQuantity(Category productType)
+        public int CountProductByCategory(Category productType)
         {
             switch (productType)
             {

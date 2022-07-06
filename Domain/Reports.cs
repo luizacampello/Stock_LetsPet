@@ -17,7 +17,7 @@ namespace Stock.Domain
         }
         public void StockContentReport()
         {
-            if (storage.ProductCategoryQuantity(Category.Shampoo) != 0)
+            if (storage.CountProductByCategory(Category.Shampoo) != 0)
             {
                 Console.WriteLine(Messages.listOfProducts + Category.Shampoo.GetDescription() + ":");
                 foreach (Product shampoo in storage.StoredShampoo)
@@ -95,7 +95,7 @@ Marca: {product.Brand}
 - Espécie: {product.Species.GetDescription()}
 - Uso: {product.Usage.GetDescription()}
 - Preço: {product.Price.ToString("C2", CultureInfo.CurrentCulture)}
-- Volume disponível / Volume total: {product.CurrentVolume}/{product.TotalVolume}
+- Volume disponível: {product.CurrentVolume}/{product.TotalVolume}
 - Data de validade: {product.ExpirationDate.ToString("dd/MM/yyyy")}
 ------------------------------------------------------------
 ");
