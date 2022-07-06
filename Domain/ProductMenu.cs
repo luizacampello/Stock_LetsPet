@@ -180,12 +180,12 @@ namespace Stock.Domain
 
         public void TestCreatedStock()
         {
-            Product InicialShampoo = new Product(Category.Shampoo, Usage.Geral, "Pet Clean 5 em 1",
-                "Pet Clean", 14, 700, DateTime.Now.AddYears(1), Species.Cachorro);
-            Product InicialConditioner = new Product(Category.Condicionador, Usage.Geral, "Sanol Dog revitalizante",
-                "Sanol", 17, 500, DateTime.Now.AddYears(1), Species.Cachorro);
-            Product InicialPerfume = new Product(Category.Perfume, Usage.Geral, "Colônia Me.Au Pet Cheirinho de Bebê",
-                "Me.Au Pet", 13, 120, DateTime.Now.AddYears(1), Species.Cachorro);
+            Product InicialShampoo = new Product(Category.Shampoo, Usage.General, "Pet Clean 5 em 1",
+                "Pet Clean", 14, 700, DateTime.Now.AddYears(1), Species.Dog);
+            Product InicialConditioner = new Product(Category.Conditioner, Usage.General, "Sanol Dog revitalizante",
+                "Sanol", 17, 500, DateTime.Now.AddYears(1), Species.Dog);
+            Product InicialPerfume = new Product(Category.Perfume, Usage.General, "Colônia Me.Au Pet Cheirinho de Bebê",
+                "Me.Au Pet", 13, 120, DateTime.Now.AddYears(1), Species.Dog);
 
             storage.AddToStock(InicialShampoo);
             storage.AddToStock(InicialConditioner);

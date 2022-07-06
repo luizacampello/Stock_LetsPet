@@ -1,11 +1,13 @@
 ﻿using System;
-
+using System.ComponentModel;
 
 namespace Stock.Domain.Common
 {
     public enum BreedSize
     {
-        Pequeno = 1,
-        Grande = 2,
+        [Description("Pequeno")]
+        Small = 1,
+        [Description("Grande")]
+        Big = 2,
     }
 }

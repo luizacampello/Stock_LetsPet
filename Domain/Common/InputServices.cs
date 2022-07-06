@@ -43,7 +43,7 @@ namespace Stock.Domain.Common
                     return Category.Shampoo;
 
                 case "2":
-                    return Category.Condicionador;
+                    return Category.Conditioner;
 
                 case "3":
                     return Category.Perfume;
@@ -61,10 +61,10 @@ namespace Stock.Domain.Common
             switch (inputUsage)
             {
                 case "1":
-                    return Usage.Geral;
+                    return Usage.General;
 
                 case "2":
-                    return Usage.Especial;
+                    return Usage.Special;
 
                 default:
                     Console.WriteLine(Messages.formatError);
@@ -79,11 +79,11 @@ namespace Stock.Domain.Common
             switch (inputSpecie)
             {
                 case "1":
-                    return Species.Cachorro;
+                    return Species.Dog;
 
 
                 case "2":
-                    return Species.Gato;
+                    return Species.Cat;
 
 
                 default:

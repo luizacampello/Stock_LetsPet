@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Stock.Domain.Common;
+using System;
 using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
@@ -18,30 +19,30 @@ namespace Stock.Domain
         {
             if (storage.ProductCategoryQuantity(Category.Shampoo) != 0)
             {
-                Console.WriteLine(Messages.listOfProducts + Category.Shampoo + ":");
+                Console.WriteLine(Messages.listOfProducts + Category.Shampoo.GetDescription() + ":");
                 foreach (Product shampoo in storage.StoredShampoo)
                     PrintProduct(shampoo);
             }
             else
-                Console.WriteLine(Messages.noProductsAvailable + Category.Shampoo + ".");
+                Console.WriteLine(Messages.noProductsAvailable + Category.Shampoo.GetDescription() + ".");
 
             if (storage.StoredCondicionador.Count != 0)
             {
-                Console.WriteLine(Messages.listOfProducts + Category.Condicionador + ":");
+                Console.WriteLine(Messages.listOfProducts + Category.Conditioner.GetDescription() + ":");
                 foreach (Product conditioner in storage.StoredCondicionador)
                     PrintProduct(conditioner);
             }
             else
-                Console.WriteLine(Messages.noProductsAvailable + Category.Condicionador + ".");
+                Console.WriteLine(Messages.noProductsAvailable + Category.Conditioner.GetDescription() + ".");
 
             if (storage.StoredPerfume.Count != 0)
             {
-                Console.WriteLine(Messages.listOfProducts + Category.Perfume + ":");
+                Console.WriteLine(Messages.listOfProducts + Category.Perfume.GetDescription() + ":");
                 foreach (Product perfume in storage.StoredPerfume)
                     PrintProduct(perfume);
             }
             else
-                Console.WriteLine(Messages.noProductsAvailable + Category.Perfume + ".");
+                Console.WriteLine(Messages.noProductsAvailable + Category.Perfume.GetDescription() + ".");
         }
 
         public void SearchResultsByType(List<Product> products)
@@ -90,9 +91,9 @@ namespace Stock.Domain
         {
             Console.WriteLine(@$"Nome: {product.Name}
 Marca: {product.Brand}
-- Categoria: {product.Category}
-- Espécie: {product.Species}
-- Uso: {product.Usage}
+- Categoria: {product.Category.GetDescription()}
+- Espécie: {product.Species.GetDescription()}
+- Uso: {product.Usage.GetDescription()}
 - Preço: {product.Price.ToString("C2", CultureInfo.CurrentCulture)}
 - Volume disponível: {product.CurrentVolume}/{product.TotalVolume}
 - Data de validade: {product.ExpirationDate.ToString("dd/MM/yyyy")}

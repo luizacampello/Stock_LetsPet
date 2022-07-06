@@ -1,11 +1,13 @@
 ﻿using System;
-
+using System.ComponentModel;
 
 namespace Stock.Domain.Common
 {
     public enum Species
     {
-        Cachorro = 1,
-        Gato = 2,
+        [Description("Cachorro")]
+        Dog = 1,
+        [Description("Gato")]
+        Cat = 2,
     }
 }
