@@ -12,11 +12,11 @@ namespace Stock.Domain
         public static int newCurrentVolume;
         public static int VolumeSpentOnService(Service currentService)
         {
-            if (currentService.usage == Usage.Geral) //Shampoo Comum
+            if (currentService.usage == Usage.General) //Shampoo Comum
             {
                 return 50;
             }
-            else if (currentService.usage == Usage.Especial) //Shampoo Especial
+            else if (currentService.usage == Usage.Special) //Shampoo Especial
             {
                 return 20;
             }

@@ -12,11 +12,11 @@ namespace Stock.Domain
         public static int newCurrentVolume;
         public static int VolumeSpentOnService(Service currentService)
         {
-            if (currentService.usage == Usage.Geral) //Condicionador Comum
+            if (currentService.usage == Usage.General) //Condicionador Comum
             {
                 return 15;
             }
-            else if (currentService.usage == Usage.Especial) //Condicionador Especial
+            else if (currentService.usage == Usage.Special) //Condicionador Especial
             {
                 return 10;
             }

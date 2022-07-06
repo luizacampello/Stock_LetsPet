@@ -222,7 +222,6 @@ namespace Stock.Domain
             }
         }
 
-
         private void OpenProduct()
         {
             Category wantedProductType = InputServices.SelectCategory();
