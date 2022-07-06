@@ -13,7 +13,7 @@ namespace Stock.Domain
         public string Brand { get; private set; }
         public decimal Price { get; private set; }
         public int TotalVolume { get; private set; }
-        public int CurrentVolume { get; private set; }
+        public int CurrentVolume { get; set; }
         public DateTime ExpirationDate { get; private set; }
         public Species Species { get; private set; }
 

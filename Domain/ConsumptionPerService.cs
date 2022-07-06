@@ -4,7 +4,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Stock.Domain.Common;
-using Stock.Domain;
 
 namespace Stock.Domain
 {

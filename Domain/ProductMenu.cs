@@ -190,6 +190,7 @@ namespace Stock.Domain
             storage.AddToStock(InicialShampoo);
             storage.AddToStock(InicialConditioner);
             storage.AddToStock(InicialPerfume);
+
             return;
         }
 
@@ -202,6 +203,25 @@ namespace Stock.Domain
                 reports.PrintProduct(item);
             }
         }
+
+        public void PrintOpenProducts()
+        {
+            foreach (Product item in ProductInUse.OpenShampoo)
+            {
+                reports.PrintProduct(item);
+            }
+
+            foreach (Product item in ProductInUse.OpenConditioner)
+            {
+                reports.PrintProduct(item);
+            }
+
+            foreach (Product item in ProductInUse.OpenPerfume)
+            {
+                reports.PrintProduct(item);
+            }
+        }
+
 
         private void OpenProduct()
         {

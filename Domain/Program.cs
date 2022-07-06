@@ -1,4 +1,5 @@
 ﻿using Stock.Domain;
+using Stock.Domain.Common;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -16,6 +17,12 @@ namespace Stock.Domain
             ProductRegistration registry = new ProductRegistration(storage);
             //ProductInUse productInUse = new();
             ProductMenu productMenu = new ProductMenu(storage, reports, registry/*, productInUse*/);
+            /* Testes de produtos e serviços */
+            productMenu.TestCreatedStock();
+            Service servico = new Service(Species.Cachorro, BreedSize.Grande, Usage.Geral, true, ServiceType.Banho);
+            ProductInUse.ExpendProductAfterService(servico, storage);
+            productMenu.PrintOpenProducts();
+            /*----------------------------- */
 
             productMenu.BeginProgram();
         }
