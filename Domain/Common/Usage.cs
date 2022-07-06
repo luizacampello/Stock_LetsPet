@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Stock.Domain.Common
+namespace Stock.Domain
 {
     public enum Usage
     {
